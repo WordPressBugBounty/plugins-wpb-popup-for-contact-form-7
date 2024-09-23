@@ -1,0 +1,282 @@
+.wpb-pcf-alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+.wpb-pcf-alert.wpb-pcf-alert-inline {
+    display: inline-block;
+}
+.wpb-pcf-alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.wpb-pcf-btn {
+    display: flex;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    text-decoration: none;
+    font-weight: 600;
+    color: #212529;
+    text-align: center;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    line-height: normal;
+    border: 0;
+    border-radius: 3px;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -ms-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+    -webkit-font-smoothing: antialiased;
+}
+.wpb-pcf-btn.wpb-pcf-btn-large {
+    padding: 13px 25px 15px;
+    font-size: 17px;
+    line-height: normal;
+}
+.wpb-pcf-btn.wpb-pcf-btn-medium {
+    padding: 11px 20px 13px;
+    font-size: 16px;
+    line-height: normal;
+}
+.wpb-pcf-btn.wpb-pcf-btn-small {
+    padding: 9px 15px 10px;
+    font-size: 14px;
+    line-height: normal;
+}
+.wpb-pcf-btn-default {
+    color: #fff;
+    background-color: #17a2b8;
+}
+.wpb-pcf-btn-default:hover, .wpb-pcf-btn-default:focus {
+    color: #fff;
+    background-color: #138496;
+    background-image: inherit;
+    outline: 0;
+    text-decoration: none;
+}
+.woocommerce ul.products .wpb-pcf-btn,
+.woocommerce-page ul.products .wpb-pcf-btn {
+    padding: .618em 1em;
+    font-weight: 700;
+    font-size: 100%;
+    margin-top: 10px;
+    border: 0;
+}
+.summary .wpb-pcf-btn {
+    margin-bottom: 20px;
+}
+.admin-bar .swal2-container {
+    padding-top: 56px;
+}
+
+/*
+Contact Form Style
+*/
+
+.wpb-pcf-form-style-true .swal2-content,
+.wpb-pcf-form-style-true .swal2-modal {
+    text-align: unset!important;
+}
+.rtl .wpb-pcf-form-style-true .swal2-content,
+.rtl .wpb-pcf-form-style-true .swal2-modal {
+    text-align: right!important;
+}
+.rtl .wpb-pcf-form-style-true * {
+    direction: rtl;
+}
+.wpb-pcf-form-style-true .swal2-popup {
+    background: #f4f7f8;
+}
+.wpb-pcf-form-style-true fieldset{
+	border: none;
+}
+.wpb-pcf-form-style-true legend {
+	font-size: 1.4em;
+	margin-bottom: 10px;
+}
+.wpb-pcf-form-style-true label {
+    display: block;
+    font-size: 16px;
+    line-height: normal;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+}
+.wpb-pcf-form-style-true input[type="text"],
+.wpb-pcf-form-style-true input[type="date"],
+.wpb-pcf-form-style-true input[type="datetime"],
+.wpb-pcf-form-style-true input[type="email"],
+.wpb-pcf-form-style-true input[type="number"],
+.wpb-pcf-form-style-true input[type="search"],
+.wpb-pcf-form-style-true input[type="time"],
+.wpb-pcf-form-style-true input[type="url"],
+.wpb-pcf-form-style-true input[type="tel"],
+.wpb-pcf-form-style-true textarea,
+.wpb-pcf-form-style-true select {
+	background: rgba(255,255,255,.1);
+	border: none;
+	border-radius: 4px;
+	font-size: 15px;
+	margin: 0;
+	outline: 0;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	background-color: #e8eeef;
+	color:#8a97a0;
+	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -ms-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+}
+.wpb-pcf-form-style-true input[type="text"]:focus,
+.wpb-pcf-form-style-true input[type="date"]:focus,
+.wpb-pcf-form-style-true input[type="datetime"]:focus,
+.wpb-pcf-form-style-true input[type="email"]:focus,
+.wpb-pcf-form-style-true input[type="number"]:focus,
+.wpb-pcf-form-style-true input[type="search"]:focus,
+.wpb-pcf-form-style-true input[type="time"]:focus,
+.wpb-pcf-form-style-true input[type="url"]:focus,
+.wpb-pcf-form-style-true input[type="tel"]:focus,
+.wpb-pcf-form-style-true textarea:focus,
+.wpb-pcf-form-style-true select:focus{
+	background: #d2d9dd;
+}
+.wpb-pcf-form-style-true select{
+	-webkit-appearance: menulist-button;
+	height:35px;
+}
+.wpb-pcf-form-style-true .number {
+	background: #1abc9c;
+	color: #fff;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	font-size: 0.8em;
+	margin-right: 4px;
+	line-height: 30px;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+	border-radius: 15px 15px 15px 0px;
+}
+
+.wpb-pcf-form-style-true input[type="submit"],
+.wpb-pcf-form-style-true input[type="button"]
+{
+	position: relative;
+    display: block;
+    padding: 12px 35px!important;
+    color: #FFF;
+    margin: 0 auto;
+    background: #1abc9c;
+    font-size: 18px;
+    line-height: normal!important;
+    text-align: center;
+    font-style: inherit;
+    width: 100%;
+    border: 0!important;
+    text-shadow: unset!important;
+    box-shadow: unset!important;
+    height: unset!important;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -ms-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+}
+.wpb-pcf-form-style-true input[type="submit"]:hover,
+.wpb-pcf-form-style-true input[type="button"]:hover,
+.wpb-pcf-form-style-true input[type="submit"]:focus,
+.wpb-pcf-form-style-true input[type="button"]:focus
+{
+	background: #109177;
+}
+.wpb-pcf-form-style-true input[type="submit"]:focus,
+.wpb-pcf-form-style-true input[type="button"]:focus
+{
+	outline: 0;
+}
+.wpb-pcf-form-style-true input[type="submit"].wpcf7-submit, .wpb-pcf-form-style-true input[type="button"].wpcf7-submit {
+    margin-bottom: 0;;
+}
+.wpb-pcf-form-style-true div.wpcf7-response-output {
+    margin: 20px 0 0;
+    padding: 10px 15px;
+}
+.wpb-pcf-form-style-true form.wpcf7-form .ajax-loader {
+    display: none;
+}
+.wpb-pcf-form-style-true form.wpcf7-form.submitting .ajax-loader {
+    display: block;
+    margin-top: 15px;;
+}
+.wpb-pcf-form-style-true .wpcf7 form>p,
+.wpb-pcf-form-style-true .wpcf7 form>div {
+    margin-bottom: 20px;
+}
+.wpb-pcf-form-style-true .wpcf7-form {
+    margin-bottom: -10px;
+}
+.wpb-pcf-form-style-true .wpcf7 form>p span,
+.wpb-pcf-form-style-true .wpcf7 form>div span {
+    display: block;
+    margin-top: 10px;
+}
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+.wpb-pcf-btn-loading:before {
+    content: '';
+    box-sizing: border-box;
+    width: 15px;
+    height: 15px;
+    margin-right: 7px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    animation: spinner .6s linear infinite;
+}
+.rtl .wpb-pcf-btn-loading:before {
+    margin-left: 7px;
+    margin-right: 0;
+}
+.menu-item .wpb-pcf-btn-loading:before {
+    display: none!important;
+}
+.theme-hestia li.product .wpb-pcf-btn {
+    margin: 10px auto 20px;
+}
+.theme-oceanwp  li.product.owp-content-center .wpb-pcf-btn {
+    margin: 10px auto 20px;
+}
+.theme-oceanwp.single-product .wpb-pcf-btn {
+    margin-top: 20px;
+}
+.theme-storefront .wpb-pcf-form-style-true form {
+    margin-bottom: 0;
+}
+.theme-storefront li.product .wpb-pcf-btn,
+.theme-sydney li.product .wpb-pcf-btn,
+.theme-dt-the7 .dt-products.woo-hover .wpb-pcf-btn {
+    margin: 10px auto 0;
+}
+.wpb-pcf-form-style-false .swal2-html-container {
+    text-align: inherit!important;
+}
