@@ -4,7 +4,7 @@ Plugin URI: https://wpbean.com/
 Contributors: wpbean, imranwpb
 Tags: cf7, contact form 7 popup, contact form popup, popup form, popup
 Requires at least: 5.0
-Tested up to: 6.6.1
+Tested up to: 6.6.2
 Stable tag: 1.7.3
 Requires PHP: 7.3.5
 License: GPLv3
@@ -100,6 +100,9 @@ Using this plugin is super easy as we have details <a href="https://docs.wpbean.
 * Storefront
 * Flatsome
 * Avada
+* Tove
+* Raft
+* Neve FSE
 * The7
 * and Many More.
 
