@@ -5,7 +5,7 @@ Contributors: wpbean, imranwpb
 Tags: cf7, contact form 7 popup, contact form popup, popup form, popup
 Requires at least: 5.0
 Tested up to: 6.6.2
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 Requires PHP: 7.3.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -145,6 +145,9 @@ Our shortcode can be used in the Gutenberg to show the pop-up button.
 = In comparison to Popup Maker, why should I use this plugin instead? =
 Without a doubt, Popup Maker is a fantastic plugin. However, there are certain additional steps that must be taken in order to use the Popup Maker Contact Form 7 popup. In our plugin you can just select the CF7 form and you are ready to go.
 
+= Can I use this plugin with WordPress FSE themes? =
+It integrates seamlessly with all FSE themes.
+
 
 == Screenshots ==
 
@@ -241,6 +244,9 @@ Without a doubt, Popup Maker is a fantastic plugin. However, there are certain a
 
 = Version 1.7.3 =
 * Sweetalert2 backdrop parameter added.
+
+= Version 1.7.4 =
+* Discount page added.
 
 == Upgrade notice ==
 = 1.7.2 =

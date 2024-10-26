@@ -3,7 +3,7 @@
  * Plugin Name:       WPB Popup for Contact Form 7
  * Plugin URI:        https://wpbean.com/plugins/
  * Description:       Shows a nice popup of the Contact Form 7 form.
- * Version:           1.7.3
+ * Version:           1.7.4
  * Author:            wpbean
  * Author URI:        https://wpbean.com
  * Text Domain:       wpb-popup-for-cf7-lite
@@ -26,7 +26,7 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @var string
 	 */
-	public $version = '1.7.3';
+	public $version = '1.7.4';
 
 	/**
 	 * The plugin url.
@@ -111,7 +111,7 @@ final class WPB_PCF_Get_Popup_Button {
 		add_action( 'init', array( $this, 'localization_setup' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_notices', array( $this, 'dependency_admin_notices' ) );
-		add_action( 'admin_notices', array( $this, 'suggeations_admin_notice' ) );
+		//add_action( 'admin_notices', array( $this, 'suggeations_admin_notice' ) );
 		add_action( 'admin_init', array( $this, 'admin_notice_dismissed' ) );
 	}
 
@@ -248,6 +248,8 @@ final class WPB_PCF_Get_Popup_Button {
 		if ( is_admin() ) {
 			include_once __DIR__ . '/includes/admin/class.settings-api.php';
 			include_once __DIR__ . '/includes/admin/class.settings-config.php';
+
+			include_once __DIR__ . '/includes/DiscountPage/DiscountPage.php';
 		} else {
 			include_once __DIR__ . '/includes/class.shortcode.php';
 		}
@@ -272,6 +274,8 @@ final class WPB_PCF_Get_Popup_Button {
 
 		if ( is_admin() ) {
 			new WPB_PCF_Plugin_Settings();
+
+			new WPBean_CF7_Popup_DiscountPage();
 		} else {
 			new WPB_PCF_Shortcode_Handler();
 		}
