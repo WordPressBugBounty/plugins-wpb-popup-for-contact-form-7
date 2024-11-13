@@ -3,7 +3,7 @@
  * Plugin Name:       WPB Popup for Contact Form 7
  * Plugin URI:        https://wpbean.com/plugins/
  * Description:       Shows a nice popup of the Contact Form 7 form.
- * Version:           1.7.4
+ * Version:           1.7.5
  * Author:            wpbean
  * Author URI:        https://wpbean.com
  * Text Domain:       wpb-popup-for-cf7-lite
@@ -26,7 +26,7 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @var string
 	 */
-	public $version = '1.7.4';
+	public $version = '1.7.5';
 
 	/**
 	 * The plugin url.

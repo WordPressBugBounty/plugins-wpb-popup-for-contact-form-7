@@ -4,8 +4,8 @@ Plugin URI: https://wpbean.com/
 Contributors: wpbean, imranwpb
 Tags: cf7, contact form 7 popup, contact form popup, popup form, popup
 Requires at least: 5.0
-Tested up to: 6.6.2
-Stable tag: 1.7.4
+Tested up to: 6.7
+Stable tag: 1.7.5
 Requires PHP: 7.3.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -247,6 +247,9 @@ It integrates seamlessly with all FSE themes.
 
 = Version 1.7.4 =
 * Discount page added.
+
+= Version 1.7.5 =
+* Tested with WordPress 6.7
 
 == Upgrade notice ==
 = 1.7.2 =
