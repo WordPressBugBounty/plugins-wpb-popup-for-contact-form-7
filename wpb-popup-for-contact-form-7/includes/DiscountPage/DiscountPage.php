@@ -147,7 +147,7 @@ class WPBean_CF7_Popup_DiscountPage
 			<div class="wpb-plugin-discount-page-header notice updated is-dismissible">
 				<img src="<?php echo plugins_url( 'assets/icons/black-friday.svg', __FILE__ ); ?>">
 				<div>
-					<h2>Top Black Friday WordPress Offers on WPBean Premium Plugins.</h2>
+					<h3>Top Black Friday WordPress Offers on WPBean Premium Plugins.</h3>
 					<p>This Black Friday, treat yourself to a hauntingly good deal with an exclusive 35% discount on our top-rated plugins! For a limited time, you can enhance your projects with powerful features at an unbeatable price. Don't miss out on this special offer to elevate your work and add some magic to your creative toolkit. Use this discount code: <b>BF2024</b>. <a href="<?php echo esc_url( $discount_url ); ?>">More Details</a></p>
 					<a href="<?php echo esc_url( $dismiss_url ); ?>" class="notice-dismiss"></a>
 				</div>

@@ -23,20 +23,20 @@ class WPB_PCF_Ajax {
 	public function wpb_pcf_fire_contact_form() {
 		check_ajax_referer( 'wpb-pcf-button-ajax', 'wpb_pcf_fire_popup_nonce' ); // Verify the nonce.
 
-		$form        = '';
-		$pcf_form_id = isset( $_POST['pcf_form_id'] ) ? sanitize_text_field( $_POST['pcf_form_id'] ) : '';
+		$pcf_form_id = isset( $_POST['pcf_form_id'] ) ? intval( $_POST['pcf_form_id'] ) : 0;
 
-		if ( $pcf_form_id ) {
+		
+		if ( $pcf_form_id > 0 && get_post_type( $pcf_form_id ) === 'wpcf7_contact_form' ) {
 
-			$shortcode = apply_filters( 'wpb_pcf_form_shortcode', '[contact-form-7 id="' . esc_attr( $pcf_form_id ) . '"]', $pcf_form_id );
+			$shortcode = sprintf( '[contact-form-7 id="%d"]', esc_attr( $pcf_form_id ) );
 
-			$form .= '<div class="wpb-pcf-wpcf7-form">';
-			$form .= do_shortcode( $shortcode );
-			$form .= '</div>';
-		}
+			$response = '<div class="wpb-pcf-wpcf7-form">';
+			$response .= do_shortcode( $shortcode );
+			$response .= '</div>';
 
-		if ( $form ) {
-			wp_send_json_success( $form );
+			wp_send_json_success( $response );
+		}else{
+			wp_send_json_error( esc_html__( 'Invalid CF7 Form ID', 'wpb-popup-for-cf7-lite' ) );
 		}
 	}
 }
