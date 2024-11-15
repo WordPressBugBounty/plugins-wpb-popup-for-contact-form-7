@@ -96,8 +96,6 @@ class WPB_PCF_Menu_Meta {
 			return;
 		}
 
-		check_admin_referer( 'update-nav_menu', 'update-nav-menu-nonce' );
-
 		foreach ( self::$fields as $_key => $label ) {
 			$key = sprintf( 'menu-item-%s', $_key );
 

@@ -5,7 +5,7 @@ Contributors: wpbean, imranwpb
 Tags: cf7, contact form 7 popup, contact form popup, popup form, popup
 Requires at least: 5.0
 Tested up to: 6.7
-Stable tag: 1.7.6
+Stable tag: 1.7.7
 Requires PHP: 7.3.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -253,6 +253,9 @@ It integrates seamlessly with all FSE themes.
 
 = Version 1.7.6 =
 * Ajax do_shortcode security issue fixed.
+
+= Version 1.7.7 =
+* Added support for CF7 hash for popup ID.
 
 == Upgrade notice ==
 = 1.7.2 =

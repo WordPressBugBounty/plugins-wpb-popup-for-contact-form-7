@@ -23,8 +23,14 @@ class WPB_PCF_Ajax {
 	public function wpb_pcf_fire_contact_form() {
 		check_ajax_referer( 'wpb-pcf-button-ajax', 'wpb_pcf_fire_popup_nonce' ); // Verify the nonce.
 
-		$pcf_form_id = isset( $_POST['pcf_form_id'] ) ? intval( $_POST['pcf_form_id'] ) : 0;
+		$pcf_form_id = isset( $_POST['pcf_form_id'] ) ? sanitize_key( $_POST['pcf_form_id'] ) : 0;
 
+		// Getting the CF7 form ID form the hash.
+		if( get_post_type( $pcf_form_id ) !== 'wpcf7_contact_form' ) {
+			$pcf_form_id = wpb_pcf_wpcf7_get_contact_form_id_by_hash( $pcf_form_id );
+		}else{
+			$pcf_form_id = intval( $pcf_form_id );
+		}
 		
 		if ( $pcf_form_id > 0 && get_post_type( $pcf_form_id ) === 'wpcf7_contact_form' ) {
 
