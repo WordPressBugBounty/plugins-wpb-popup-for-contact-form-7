@@ -4,8 +4,8 @@ Plugin URI: https://wpbean.com/
 Contributors: wpbean, imranwpb
 Tags: cf7, contact form 7 popup, contact form popup, popup form, popup
 Requires at least: 5.0
-Tested up to: 6.7
-Stable tag: 1.7.7
+Tested up to: 6.7.1
+Stable tag: 1.7.8
 Requires PHP: 7.3.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -256,6 +256,9 @@ It integrates seamlessly with all FSE themes.
 
 = Version 1.7.7 =
 * Added support for CF7 hash for popup ID.
+
+= Version 1.7.8 =
+* Disabled the nonce varification for the caching issue.
 
 == Upgrade notice ==
 = 1.7.2 =

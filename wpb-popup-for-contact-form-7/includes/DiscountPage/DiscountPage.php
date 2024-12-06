@@ -12,8 +12,8 @@ class WPBean_CF7_Popup_DiscountPage
 	 * @var array
 	 */
 	public $args = array(
-		'page_title'  => 'Best Black Friday WordPress Deals on Top Plugins Now! (2024)',
-		'menu_title'  => 'Black Friday Offer',
+		'page_title'  => 'Best WordPress Deals on Top Plugins Now! (2024)',
+		'menu_title'  => 'Biggest Sale 2024',
 		'menu_slug'   => 'wpbean-discount',
 		'icon_url'    => '',
 		'menu_type'   => 'submenu',                  // menu or submenu.
@@ -90,8 +90,8 @@ class WPBean_CF7_Popup_DiscountPage
 			<div class="wpb-plugin-discount-page-header">
 				<img src="<?php echo plugins_url( 'assets/icons/black-friday.svg', __FILE__ ); ?>">
 				<div>
-					<h2>Top Black Friday WordPress Offers on WPBean Premium Plugins.</h2>
-					<p>This Black Friday, treat yourself to a hauntingly good deal with an exclusive 35% discount on our top-rated plugins! For a limited time, you can enhance your projects with powerful features at an unbeatable price. Don't miss out on this special offer to elevate your work and add some magic to your creative toolkit.</p>
+					<h2>🚀 WPBean Premium Plugins' BIGGEST SALE OF 2024 is here!!! 🔥</h2>
+					<p>Treat yourself to a hauntingly good deal with an exclusive 35% discount on our top-rated plugins! For a limited time, you can enhance your projects with powerful features at an unbeatable price. Don't miss out on this special offer to elevate your work and add some magic to your creative toolkit.</p>
 					<p>Use this discount code: <b>BF2024</b></p>
 					<a href="https://wpbean.com/plugins/?utm_content=WPB+Plugins+Page&utm_campaign=black-friday&utm_medium=black-friday-page&utm_source=FreeVersion" target="_blank" class="button">Grab the Deal</a>
 				</div>
@@ -107,6 +107,7 @@ class WPBean_CF7_Popup_DiscountPage
 									'utm_medium'   => 'black-friday-page',
 									'utm_source'   => 'CF7PopupFreeVersion',
 								), $product->info->permalink );
+
 								?>
 								<div class="wpb-plugin-discount-item">
 									<a target="_blank" href="<?php echo esc_url( $permalink ); ?>"><img src="<?php echo esc_url( $product->info->thumbnail )?>" alt="<?php echo esc_html( $product->info->title ); ?>"></a>
@@ -142,13 +143,13 @@ class WPBean_CF7_Popup_DiscountPage
 
 		$discount_url =  add_query_arg( 'page', 'wpbean-discount', admin_url( 'admin.php' ) );
 
-		if ( ! get_user_meta( $user_id, 'wpbean_cf7_popup_pro_discount_dismissed' ) && 'contact_page_wpbean-discount' !== $screen->base ) {
+		if ( 'true' !== get_user_meta( $user_id, 'wpbean_cf7_popup_pro_blackfriday_discount_dismissed', true ) && $user_id && current_user_can( 'manage_options' ) && 'contact_page_wpbean-discount' !== $screen->base ) {
 			?>
 			<div class="wpb-plugin-discount-page-header notice updated is-dismissible">
 				<img src="<?php echo plugins_url( 'assets/icons/black-friday.svg', __FILE__ ); ?>">
 				<div>
-					<h3>Top Black Friday WordPress Offers on WPBean Premium Plugins.</h3>
-					<p>This Black Friday, treat yourself to a hauntingly good deal with an exclusive 35% discount on our top-rated plugins! For a limited time, you can enhance your projects with powerful features at an unbeatable price. Don't miss out on this special offer to elevate your work and add some magic to your creative toolkit. Use this discount code: <b>BF2024</b>. <a href="<?php echo esc_url( $discount_url ); ?>">More Details</a></p>
+					<h3>🚀 WPBean Premium Plugins' BIGGEST SALE OF 2024 is here!!! 🔥</h3>
+					<p>Treat yourself to a hauntingly good deal with an exclusive 35% discount on our top-rated plugins! For a limited time, you can enhance your projects with powerful features at an unbeatable price. Don't miss out on this special offer to elevate your work and add some magic to your creative toolkit. Use this discount code: <b>BF2024</b>. <a href="<?php echo esc_url( $discount_url ); ?>">More Details</a></p>
 					<a href="<?php echo esc_url( $dismiss_url ); ?>" class="notice-dismiss"></a>
 				</div>
 			</div>
@@ -164,9 +165,11 @@ class WPBean_CF7_Popup_DiscountPage
 	public function discount_admin_notice_dismissed() {
 		$user_id = get_current_user_id();
 
-		if ( ! empty( $_GET['wpbean-cf7-popup-discount-admin-notice-dismissed'] ) ) { // WPCS: input var ok.
+		//delete_user_meta( $user_id, 'wpbean_cf7_popup_pro_blackfriday_discount_dismissed' );
+
+		if ( ! empty( $_GET['wpbean-cf7-popup-discount-admin-notice-dismissed'] ) && $user_id && current_user_can( 'manage_options' ) ) { // WPCS: input var ok.
 			check_admin_referer( 'wpbean_cf7_popup_discount_admin_notice_dismissed', 'wpbean_cf7_popup_discount_admin_notice_dismissed_nonce' );
-			add_user_meta( $user_id, 'wpbean_cf7_popup_pro_discount_dismissed', 'true', true );
+			add_user_meta( $user_id, 'wpbean_cf7_popup_pro_blackfriday_discount_dismissed', 'true', true );
 		}
 	}
 }

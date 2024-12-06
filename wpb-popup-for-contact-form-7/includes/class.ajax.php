@@ -21,7 +21,7 @@ class WPB_PCF_Ajax {
 	 * Form Content
 	 */
 	public function wpb_pcf_fire_contact_form() {
-		check_ajax_referer( 'wpb-pcf-button-ajax', 'wpb_pcf_fire_popup_nonce' ); // Verify the nonce.
+		//check_ajax_referer( 'wpb-pcf-button-ajax', 'wpb_pcf_fire_popup_nonce' ); // Verify the nonce.
 
 		$pcf_form_id = isset( $_POST['pcf_form_id'] ) ? sanitize_key( $_POST['pcf_form_id'] ) : 0;
 
