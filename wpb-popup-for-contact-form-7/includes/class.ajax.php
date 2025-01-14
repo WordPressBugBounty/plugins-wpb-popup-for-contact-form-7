@@ -42,7 +42,7 @@ class WPB_PCF_Ajax {
 
 			wp_send_json_success( $response );
 		}else{
-			wp_send_json_error( esc_html__( 'Invalid CF7 Form ID', 'wpb-popup-for-cf7-lite' ) );
+			wp_send_json_error( esc_html__( 'Invalid CF7 Form ID', 'wpb-popup-for-contact-form-7' ) );
 		}
 	}
 }

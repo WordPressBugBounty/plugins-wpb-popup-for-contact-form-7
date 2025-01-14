@@ -1,20 +1,23 @@
 <?php
+
 /**
  * Plugin Name:       WPB Popup for Contact Form 7
- * Plugin URI:        https://wpbean.com/plugins/
+ * Plugin URI:        https://wpbean.com/downloads/popup-for-contact-form-7-pro/
  * Description:       Shows a nice popup of the Contact Form 7 form.
- * Version:           1.7.8
- * Author:            wpbean
- * Author URI:        https://wpbean.com
- * Text Domain:       wpb-popup-for-cf7-lite
+ * Requires at least: 6.6
+ * Requires PHP:      7.4
+ * Version:           1.7.9
+ * Author:            WPBean
+ * Author URI:        https://wpbean.com/
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       wpb-popup-for-contact-form-7
  * Domain Path:       /languages
  *
  * @package WPB Popup for Contact Form 7
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
 
 /**
  * Plugin main class
@@ -26,7 +29,7 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @var string
 	 */
-	public $version = '1.7.8';
+	public $version = '1.7.9';
 
 	/**
 	 * The plugin url.
@@ -111,7 +114,7 @@ final class WPB_PCF_Get_Popup_Button {
 		add_action( 'init', array( $this, 'localization_setup' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_notices', array( $this, 'dependency_admin_notices' ) );
-		//add_action( 'admin_notices', array( $this, 'suggeations_admin_notice' ) );
+		add_action( 'admin_notices', array( $this, 'suggeations_admin_notice' ) );
 		add_action( 'admin_init', array( $this, 'admin_notice_dismissed' ) );
 	}
 
@@ -135,27 +138,27 @@ final class WPB_PCF_Get_Popup_Button {
 		if ( ! get_user_meta( $user_id, 'wpb_pcf_pro_discount_dismissed' ) ) {
 			printf(
 				'<div class="wpb-pcf-discount-notice updated" style="padding: 30px 20px;border-left-color: #27ae60;border-left-width: 5px;margin-top: 20px;"><p style="font-size: 18px;line-height: 32px">%s <a target="_blank" href="%s">%s</a>! %s <b>%s</b></p><a href="%s">%s</a></div>',
-				esc_html__( 'Get a 10% exclusive discount on the premium version of the', 'wpb-popup-for-cf7-lite' ),
+				esc_html__( 'Get a 10% exclusive discount on the premium version of the', 'wpb-popup-for-contact-form-7' ),
 				'https://wpbean.com/downloads/popup-for-contact-form-7-pro/?utm_content=Popup+for+Contact+Form+7+Pro&utm_campaign=adminlink&utm_medium=discount-notie&utm_source=FreeVersion',
-				esc_html__( 'Popup for Contact Form 7', 'wpb-popup-for-cf7-lite' ),
-				esc_html__( 'Use discount code - ', 'wpb-popup-for-cf7-lite' ),
+				esc_html__( 'Popup for Contact Form 7', 'wpb-popup-for-contact-form-7' ),
+				esc_html__( 'Use discount code - ', 'wpb-popup-for-contact-form-7' ),
 				'10PERCENTOFF',
 				esc_url( $discount_dismiss_url ),
-				esc_html__( 'Dismiss', 'wpb-popup-for-cf7-lite' )
+				esc_html__( 'Dismiss', 'wpb-popup-for-contact-form-7' )
 			);
 		}
 
 		if ( ! get_user_meta( $user_id, 'wpb_pcf_form_popup_suggestion' ) ) {
 			printf(
 				'<div class="wpb-pcf-form-popup-suggestion updated" style="padding: 30px 20px;border-left-color: #27ae60;border-left-width: 5px;margin-top: 20px;"><p style="font-size: 18px;line-height: 32px">%s <a target="_blank" href="%s">%s</a> %s <b>%s</b>%s </p><a href="%s">%s</a></div>',
-				esc_html__( 'Try our new ', 'wpb-popup-for-cf7-lite' ),
+				esc_html__( 'Try our new ', 'wpb-popup-for-contact-form-7' ),
 				'https://wordpress.org/plugins/wpb-form-popup/?utm_content=WPB+Form+Popup&utm_campaign=adminlink&utm_medium=suggestion-notie&utm_source=PCFFreeVersion',
-				esc_html__( 'WPB Form Popup', 'wpb-popup-for-cf7-lite' ),
-				esc_html__( 'plugin if you prefer to use a different form plugin than', 'wpb-popup-for-cf7-lite' ),
-				esc_html__( 'Contact Form 7', 'wpb-popup-for-cf7-lite' ),
-				esc_html__( '. All of the form plugins are supported.', 'wpb-popup-for-cf7-lite' ),
+				esc_html__( 'WPB Form Popup', 'wpb-popup-for-contact-form-7' ),
+				esc_html__( 'plugin if you prefer to use a different form plugin than', 'wpb-popup-for-contact-form-7' ),
+				esc_html__( 'Contact Form 7', 'wpb-popup-for-contact-form-7' ),
+				esc_html__( '. All of the form plugins are supported.', 'wpb-popup-for-contact-form-7' ),
 				esc_url( $form_popup_suggestion_dismiss_url ),
-				esc_html__( 'Dismiss', 'wpb-popup-for-cf7-lite' )
+				esc_html__( 'Dismiss', 'wpb-popup-for-contact-form-7' )
 			);
 		}
 	}
@@ -226,11 +229,11 @@ final class WPB_PCF_Get_Popup_Button {
 	public function plugin_action_links( $links ) {
 		if ( ! defined( 'WPB_PCF_PREMIUM' ) ) {
 			if ( defined( 'WPCF7_PLUGIN' ) ) {
-				$links[] = '<a href="' . admin_url( 'admin.php?page=wpb-popup-for-cf7' ) . '">' . esc_html__( 'Settings', 'wpb-popup-for-cf7-lite' ) . '</a>';
+				$links[] = '<a href="' . admin_url( 'admin.php?page=wpb-popup-for-cf7' ) . '">' . esc_html__( 'Settings', 'wpb-popup-for-contact-form-7' ) . '</a>';
 			}
-			$links[] = '<a target="_blank" href="https://docs.wpbean.com/?p=1192">' . esc_html__( 'Documentation', 'wpb-popup-for-cf7-lite' ) . '</a>';
+			$links[] = '<a target="_blank" href="https://docs.wpbean.com/?p=1192">' . esc_html__( 'Documentation', 'wpb-popup-for-contact-form-7' ) . '</a>';
 		
-			$links[] = '<a target="_blank" style="    color: #93003c;text-shadow: 1px 1px 1px #eee;font-weight: 700;" href="https://wpbean.com/downloads/popup-for-contact-form-7-pro/?utm_content=Popup+for+Contact+Form+7+Pro&utm_campaign=adminlink&utm_medium=action-link&utm_source=FreeVersion">' . esc_html__( 'Get Pro', 'wpb-popup-for-cf7-lite' ) . '</a>';
+			$links[] = '<a target="_blank" style="    color: #93003c;text-shadow: 1px 1px 1px #eee;font-weight: 700;" href="https://wpbean.com/downloads/popup-for-contact-form-7-pro/?utm_content=Popup+for+Contact+Form+7+Pro&utm_campaign=adminlink&utm_medium=action-link&utm_source=FreeVersion">' . esc_html__( 'Get Pro', 'wpb-popup-for-contact-form-7' ) . '</a>';
 		}
 		return $links;
 	}
@@ -249,7 +252,7 @@ final class WPB_PCF_Get_Popup_Button {
 			include_once __DIR__ . '/includes/admin/class.settings-api.php';
 			include_once __DIR__ . '/includes/admin/class.settings-config.php';
 
-			include_once __DIR__ . '/includes/DiscountPage/DiscountPage.php';
+			//include_once __DIR__ . '/includes/DiscountPage/DiscountPage.php';
 		} else {
 			include_once __DIR__ . '/includes/class.shortcode.php';
 		}
@@ -275,7 +278,7 @@ final class WPB_PCF_Get_Popup_Button {
 		if ( is_admin() ) {
 			new WPB_PCF_Plugin_Settings();
 
-			new WPBean_CF7_Popup_DiscountPage();
+			//new WPBean_CF7_Popup_DiscountPage();
 		} else {
 			new WPB_PCF_Shortcode_Handler();
 		}
@@ -291,7 +294,7 @@ final class WPB_PCF_Get_Popup_Button {
 	 * @return void
 	 */
 	public function localization_setup() {
-		load_plugin_textdomain( 'wpb-popup-for-cf7-lite', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'wpb-popup-for-contact-form-7', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
@@ -365,7 +368,7 @@ final class WPB_PCF_Get_Popup_Button {
 		if ( ! defined( 'WPCF7_PLUGIN' ) ) {
 			?>
 			<div class="notice notice-error is-dismissible">
-				<p><b><?php esc_html_e( 'Popup for Contact Form 7', 'wpb-popup-for-cf7-lite' ); ?></b><?php esc_html_e( ' required ', 'wpb-popup-for-cf7-lite' ); ?><b><a href="https://wordpress.org/plugins/contact-form-7" target="_blank"><?php esc_html_e( 'Contact Form 7', 'wpb-popup-for-cf7-lite' ); ?></a></b><?php esc_html_e( ' plugin to work with.', 'wpb-popup-for-cf7-lite' ); ?> <b><a href="<?php echo esc_url( $install_cf7 ); ?>">Click here</a></b> to install the <b><?php esc_html_e( 'Contact Form 7', 'wpb-popup-for-cf7-lite' ); ?></b> Plugin.</p>
+				<p><b><?php esc_html_e( 'Popup for Contact Form 7', 'wpb-popup-for-contact-form-7' ); ?></b><?php esc_html_e( ' required ', 'wpb-popup-for-contact-form-7' ); ?><b><a href="https://wordpress.org/plugins/contact-form-7" target="_blank"><?php esc_html_e( 'Contact Form 7', 'wpb-popup-for-contact-form-7' ); ?></a></b><?php esc_html_e( ' plugin to work with.', 'wpb-popup-for-contact-form-7' ); ?> <b><a href="<?php echo esc_url( $install_cf7 ); ?>">Click here</a></b> to install the <b><?php esc_html_e( 'Contact Form 7', 'wpb-popup-for-contact-form-7' ); ?></b> Plugin.</p>
 			</div>
 			<?php
 		}
@@ -373,7 +376,7 @@ final class WPB_PCF_Get_Popup_Button {
 		if ( ! $cf7_form_id && defined( 'WPCF7_PLUGIN' ) ) {
 			?>
 			<div class="notice notice-error is-dismissible">
-				<p><?php esc_html_e( 'The Popup for Contact Form 7 needs a form to show. Please select a form', 'wpb-popup-for-cf7-lite' ); ?> <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpb-popup-for-cf7' ) ); ?>"><?php esc_html_e( 'here', 'wpb-popup-for-cf7-lite' ); ?></a>.</p>
+				<p><?php esc_html_e( 'The Popup for Contact Form 7 needs a form to show. Please select a form', 'wpb-popup-for-contact-form-7' ); ?> <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpb-popup-for-cf7' ) ); ?>"><?php esc_html_e( 'here', 'wpb-popup-for-contact-form-7' ); ?></a>.</p>
 			</div>
 			<?php
 		}

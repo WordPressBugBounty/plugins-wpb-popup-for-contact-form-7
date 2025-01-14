@@ -5,10 +5,10 @@ Contributors: wpbean, imranwpb
 Tags: cf7, contact form 7 popup, contact form popup, popup form, popup
 Requires at least: 5.0
 Tested up to: 6.7.1
-Stable tag: 1.7.8
-Requires PHP: 7.3.5
-License: GPLv3
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Stable tag: 1.7.9
+Requires PHP: 7.4
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Contact Form 7 Popup can boost your sales, leads, and conversions. It only takes a few clicks to add a button-clicked contact form popup. CF7 popup.
 
@@ -16,7 +16,7 @@ Contact Form 7 Popup can boost your sales, leads, and conversions. It only takes
 
 <strong>Popup for Contact Form 7</strong> can show a nice popup of the <strong>Contact Form 7</strong> form. A popup form will show up on a button click.
 
-You may be looking for a solution for showing a contact form in a popup when someone clicks a button. In that case, Popup for Contact Form 7 is the perfect plugin for your site.
+You might be trying to figure out how to make a contact form appear in a popup when a button is clicked. Popup for Contact Form 7 is the ideal plugin for your website in that scenario.
 
 It's possible to add the popup button anywhere on your site using its <strong>Custom ShortCode</strong>.
 
@@ -127,7 +127,7 @@ Using this plugin is super easy as we have details <a href="https://docs.wpbean.
 
 == Frequently asked questions ==
 
-= Is the CF7 the only contact form popup that it supports? =
+= Can I use this plugin without Contact Form 7 installed? =
 This plugin works only with the Contact Form 7. We have another contact form popup WordPress plugin that works with all of the form plugins. It's called <a href="https://wordpress.org/plugins/wpb-form-popup/" target="_blank">WPB Contact Form Popup</a>.
 
 = Does it work with the theme that I am using? =
@@ -142,12 +142,26 @@ Our shortcode can be used in the Divi builder to show the pop-up button.
 = Does it work with the Gutenberg? =
 Our shortcode can be used in the Gutenberg to show the pop-up button.
 
-= In comparison to Popup Maker, why should I use this plugin instead? =
-Without a doubt, Popup Maker is a fantastic plugin. However, there are certain additional steps that must be taken in order to use the Popup Maker Contact Form 7 popup. In our plugin you can just select the CF7 form and you are ready to go.
+= How does this plugin differ from other popup solutions like Popup Maker? =
+Unlike other plugins, this plugin is designed specifically for Contact Form 7, offering a simplified setup process without requiring extra configuration.
 
 = Can I use this plugin with WordPress FSE themes? =
 It integrates seamlessly with all FSE themes.
 
+= Does this plugin support other page builders besides Elementor? =
+Yes, it works seamlessly with various page builders, including Gutenberg, Divi, WPBakery, and Beaver Builder. It also includes an Elementor widget for easier integration.
+
+= Can I customize the popup's appearance? =
+Yes, you can use custom CSS to modify the popup's design to better fit your website's theme and style.
+
+= Does the plugin work on mobile devices? =
+Yes, the plugin is responsive and works on both desktop and mobile devices, although some settings may need adjustments for mobile optimization.
+
+= Can I use multiple popups on the same page? =
+Yes, you can create and use multiple popups with different Contact Form 7 forms on the same page by configuring them separately.
+
+= Are there premium features available? =
+Yes, the plugin has a premium version that includes advanced features, like more customization options and priority support.
 
 == Screenshots ==
 
@@ -259,6 +273,9 @@ It integrates seamlessly with all FSE themes.
 
 = Version 1.7.8 =
 * Disabled the nonce varification for the caching issue.
+
+= Version 1.7.9 =
+* Removed discount page.
 
 == Upgrade notice ==
 = 1.7.2 =

@@ -29,7 +29,7 @@ if ( ! function_exists( 'wpb_pcf_contact_form_button' ) ) {
 			'id'                  => wpb_pcf_get_option( 'cf7_form_id', 'wpb_pcf_form_settings' ),
 			'post_id'             => ( $post ? $post->ID : '' ),
 			'class'               => '',
-			'text'                => wpb_pcf_get_option( 'btn_text', 'wpb_pcf_btn_settings', esc_html__( 'Contact Us', 'wpb-popup-for-cf7-lite' ) ),
+			'text'                => wpb_pcf_get_option( 'btn_text', 'wpb_pcf_btn_settings', esc_html__( 'Contact Us', 'wpb-popup-for-contact-form-7' ) ),
 			'btn_size'            => wpb_pcf_get_option( 'btn_size', 'wpb_pcf_btn_settings', 'large' ),
 			'form_style'          => ( 'on' === wpb_pcf_get_option( 'form_style', 'wpb_pcf_popup_settings' ) ? true : false ),
 			'allow_outside_click' => ( 'on' === wpb_pcf_get_option( 'allow_outside_click', 'wpb_pcf_popup_settings' ) ? true : false ),
@@ -58,10 +58,10 @@ if ( ! function_exists( 'wpb_pcf_contact_form_button' ) ) {
 					)
 				);
 			} else {
-				printf( '<div class="wpb-pcf-alert wpb-pcf-alert-inline wpb-pcf-alert-error">%s</div>', esc_html__( 'Form id required.', 'wpb-popup-for-cf7-lite' ) );
+				printf( '<div class="wpb-pcf-alert wpb-pcf-alert-inline wpb-pcf-alert-error">%s</div>', esc_html__( 'Form id required.', 'wpb-popup-for-contact-form-7' ) );
 			}
 		} else {
-			printf( '<div class="wpb-pcf-alert wpb-pcf-alert-inline wpb-pcf-alert-error">%s</div>', esc_html__( 'Popup for Contact Form 7 required the Contact Form 7 plugin to work with.', 'wpb-popup-for-cf7-lite' ) );
+			printf( '<div class="wpb-pcf-alert wpb-pcf-alert-inline wpb-pcf-alert-error">%s</div>', esc_html__( 'Popup for Contact Form 7 required the Contact Form 7 plugin to work with.', 'wpb-popup-for-contact-form-7' ) );
 		}
 	}
 }

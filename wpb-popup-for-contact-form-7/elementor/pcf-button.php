@@ -40,7 +40,7 @@ class PCF_Button extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Contact Form 7 Popup', 'wpb-popup-for-cf7-lite' );
+		return esc_html__( 'Contact Form 7 Popup', 'wpb-popup-for-contact-form-7' );
 	}
 
 	/**
@@ -101,15 +101,15 @@ class PCF_Button extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			array(
-				'label' => esc_html__( 'Content', 'wpb-popup-for-cf7-lite' ),
+				'label' => esc_html__( 'Content', 'wpb-popup-for-contact-form-7' ),
 			)
 		);
 
 		$this->add_control(
 			'form_id',
 			array(
-				'label'       => esc_html__( 'Select a CF7 Form', 'wpb-popup-for-cf7-lite' ),
-				'description' => esc_html__( 'Select a Contact Form 7 form for popup.', 'wpb-popup-for-cf7-lite' ),
+				'label'       => esc_html__( 'Select a CF7 Form', 'wpb-popup-for-contact-form-7' ),
+				'description' => esc_html__( 'Select a Contact Form 7 form for popup.', 'wpb-popup-for-contact-form-7' ),
 				'type'        => Controls_Manager::SELECT2,
 				'label_block' => true,
 				'options'     => wp_list_pluck(
@@ -128,24 +128,24 @@ class PCF_Button extends Widget_Base {
 		$this->add_control(
 			'btn_text',
 			array(
-				'label'       => esc_html__( 'Button Text', 'wpb-popup-for-cf7-lite' ),
-				'description' => esc_html__( 'You can add your own text for the button.', 'wpb-popup-for-cf7-lite' ),
+				'label'       => esc_html__( 'Button Text', 'wpb-popup-for-contact-form-7' ),
+				'description' => esc_html__( 'You can add your own text for the button.', 'wpb-popup-for-contact-form-7' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Contact Us', 'wpb-popup-for-cf7-lite' ),
+				'default'     => esc_html__( 'Contact Us', 'wpb-popup-for-contact-form-7' ),
 			)
 		);
 
 		$this->add_control(
 			'btn_size',
 			array(
-				'label'       => esc_html__( 'Button Size', 'wpb-popup-for-cf7-lite' ),
-				'description' => esc_html__( 'Select button size. Default: Medium.', 'wpb-popup-for-cf7-lite' ),
+				'label'       => esc_html__( 'Button Size', 'wpb-popup-for-contact-form-7' ),
+				'description' => esc_html__( 'Select button size. Default: Medium.', 'wpb-popup-for-contact-form-7' ),
 				'type'        => \Elementor\Controls_Manager::SELECT,
 				'default'     => 'medium',
 				'options'     => array(
-					'small'  => esc_html__( 'Small', 'wpb-popup-for-cf7-lite' ),
-					'medium' => esc_html__( 'Medium', 'wpb-popup-for-cf7-lite' ),
-					'large'  => esc_html__( 'Large', 'wpb-popup-for-cf7-lite' ),
+					'small'  => esc_html__( 'Small', 'wpb-popup-for-contact-form-7' ),
+					'medium' => esc_html__( 'Medium', 'wpb-popup-for-contact-form-7' ),
+					'large'  => esc_html__( 'Large', 'wpb-popup-for-contact-form-7' ),
 				),
 			)
 		);
@@ -153,8 +153,8 @@ class PCF_Button extends Widget_Base {
 		$this->add_control(
 			'form_style',
 			array(
-				'label'       => esc_html__( 'Form Style', 'wpb-popup-for-cf7-lite' ),
-				'description' => esc_html__( 'Check this to enable the form style.', 'wpb-popup-for-cf7-lite' ),
+				'label'       => esc_html__( 'Form Style', 'wpb-popup-for-contact-form-7' ),
+				'description' => esc_html__( 'Check this to enable the form style.', 'wpb-popup-for-contact-form-7' ),
 				'type'        => \Elementor\Controls_Manager::SWITCHER,
 				'default'     => 'yes',
 			)
@@ -163,8 +163,8 @@ class PCF_Button extends Widget_Base {
 		$this->add_control(
 			'allow_outside_click',
 			array(
-				'label'       => esc_html__( 'Outside Click', 'wpb-popup-for-cf7-lite' ),
-				'description' => esc_html__( 'If checked, the user can dismiss the popup by clicking outside it.', 'wpb-popup-for-cf7-lite' ),
+				'label'       => esc_html__( 'Outside Click', 'wpb-popup-for-contact-form-7' ),
+				'description' => esc_html__( 'If checked, the user can dismiss the popup by clicking outside it.', 'wpb-popup-for-contact-form-7' ),
 				'type'        => \Elementor\Controls_Manager::SWITCHER,
 				'default'     => 'yes',
 			)
@@ -173,7 +173,7 @@ class PCF_Button extends Widget_Base {
 		$this->add_control(
 			'width',
 			array(
-				'label'      => esc_html__( 'Width', 'wpb-popup-for-cf7-lite' ),
+				'label'      => esc_html__( 'Width', 'wpb-popup-for-contact-form-7' ),
 				'type'       => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%' ),
 				'range'      => array(
@@ -197,13 +197,13 @@ class PCF_Button extends Widget_Base {
 		$this->add_control(
 			'_btn_css_classes',
 			array(
-				'label'        => esc_html__( 'Button CSS Classes', 'wpb-popup-for-cf7-lite' ),
+				'label'        => esc_html__( 'Button CSS Classes', 'wpb-popup-for-contact-form-7' ),
 				'type'         => Controls_Manager::TEXT,
 				'dynamic'      => array(
 					'active' => true,
 				),
 				'prefix_class' => '',
-				'title'        => esc_html__( 'Add your custom class WITHOUT the dot. e.g: my-class', 'wpb-popup-for-cf7-lite' ),
+				'title'        => esc_html__( 'Add your custom class WITHOUT the dot. e.g: my-class', 'wpb-popup-for-contact-form-7' ),
 			)
 		);
 
@@ -269,10 +269,10 @@ class PCF_Button extends Widget_Base {
 					)
 				);
 			} else {
-				printf( '<div class="wpb-pcf-alert wpb-pcf-alert-inline wpb-pcf-alert-error">%s</div>', esc_html__( 'Form id required.', 'wpb-popup-for-cf7-lite' ) );
+				printf( '<div class="wpb-pcf-alert wpb-pcf-alert-inline wpb-pcf-alert-error">%s</div>', esc_html__( 'Form id required.', 'wpb-popup-for-contact-form-7' ) );
 			}
 		} else {
-			printf( '<div class="wpb-pcf-alert wpb-pcf-alert-inline wpb-pcf-alert-error">%s</div>', esc_html__( 'Popup for Contact Form 7 required the Contact Form 7 plugin to work with.', 'wpb-popup-for-cf7-lite' ) );
+			printf( '<div class="wpb-pcf-alert wpb-pcf-alert-inline wpb-pcf-alert-error">%s</div>', esc_html__( 'Popup for Contact Form 7 required the Contact Form 7 plugin to work with.', 'wpb-popup-for-contact-form-7' ) );
 		}
 	}
 }

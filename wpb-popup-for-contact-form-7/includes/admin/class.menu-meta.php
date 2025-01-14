@@ -26,7 +26,7 @@ class WPB_PCF_Menu_Meta {
 		add_filter( 'nav_menu_link_attributes', array( $this, 'link_attributes' ), 10, 2 );
 
 		self::$fields = array(
-			'cf7_popup_trigger' => esc_html__( 'CF7 Popup Trigger', 'wpb-popup-for-cf7-lite' ),
+			'cf7_popup_trigger' => esc_html__( 'CF7 Popup Trigger', 'wpb-popup-for-contact-form-7' ),
 		);
 	}
 
@@ -84,23 +84,30 @@ class WPB_PCF_Menu_Meta {
 	}
 
 	/**
-	 * Save the menu item meta
+	 * Save the menu item meta.
 	 *
 	 * @param int $menu_id The ID of the menu. If 0, makes the menu item a draft orphan.
 	 * @param int $menu_item_db_id The ID of the menu item. If 0, creates a new menu item.
 	 * @return void
 	 */
 	public function nav_update( $menu_id, $menu_item_db_id ) {
-
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			return;
 		}
 
+		$screen = get_current_screen();
+		if ( ! $screen instanceof WP_Screen || 'nav-menus' !== $screen->id ) {
+			return;
+		}
+
+		check_admin_referer( 'update-nav_menu', 'update-nav-menu-nonce' );
+
+		// Process each custom field.
 		foreach ( self::$fields as $_key => $label ) {
 			$key = sprintf( 'menu-item-%s', $_key );
 
 			if ( ! empty( $_POST[ $key ][ $menu_item_db_id ] ) ) {
-				$value = sanitize_text_field( $_POST[ $key ][ $menu_item_db_id ] );
+				$value = sanitize_text_field( wp_unslash( $_POST[ $key ][ $menu_item_db_id ] ) );
 			} else {
 				$value = null;
 			}
@@ -112,6 +119,7 @@ class WPB_PCF_Menu_Meta {
 			}
 		}
 	}
+
 
 	/**
 	 * Add our fields to the screen options toggle

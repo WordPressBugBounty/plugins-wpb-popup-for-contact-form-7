@@ -68,8 +68,8 @@ if ( ! class_exists( 'WPB_PCF_Plugin_Settings' ) ) :
 		public function admin_menu() {
 			add_submenu_page(
 				'wpcf7',
-				esc_html__( 'Popup for Contact Form 7', 'wpb-popup-for-cf7-lite' ),
-				esc_html__( 'Popup', 'wpb-popup-for-cf7-lite' ),
+				esc_html__( 'Popup for Contact Form 7', 'wpb-popup-for-contact-form-7' ),
+				esc_html__( 'Popup', 'wpb-popup-for-contact-form-7' ),
 				apply_filters( 'wpcf7_admin_management_page', 'delete_posts' ),
 				$this->settings_name,
 				array( $this, 'plugin_page' )
@@ -83,15 +83,15 @@ if ( ! class_exists( 'WPB_PCF_Plugin_Settings' ) ) :
 			$sections = array(
 				array(
 					'id'    => 'wpb_pcf_form_settings',
-					'title' => esc_html__( 'Form Settings', 'wpb-popup-for-cf7-lite' ),
+					'title' => esc_html__( 'Form Settings', 'wpb-popup-for-contact-form-7' ),
 				),
 				array(
 					'id'    => 'wpb_pcf_btn_settings',
-					'title' => esc_html__( 'Button Settings', 'wpb-popup-for-cf7-lite' ),
+					'title' => esc_html__( 'Button Settings', 'wpb-popup-for-contact-form-7' ),
 				),
 				array(
 					'id'    => 'wpb_pcf_popup_settings',
-					'title' => esc_html__( 'Popup Settings', 'wpb-popup-for-cf7-lite' ),
+					'title' => esc_html__( 'Popup Settings', 'wpb-popup-for-contact-form-7' ),
 				),
 			);
 
@@ -120,8 +120,8 @@ if ( ! class_exists( 'WPB_PCF_Plugin_Settings' ) ) :
 				'wpb_pcf_form_settings'  => array(
 					array(
 						'name'    => 'cf7_form_id',
-						'label'   => esc_html__( 'Select a CF7 Form', 'wpb-popup-for-cf7-lite' ),
-						'desc'    => ( ! empty( $forms ) ? esc_html__( 'Select a Contact Form 7 form for popup.', 'wpb-popup-for-cf7-lite' ) : sprintf( '<a href="%s">%s</a>', admin_url( 'admin.php?page=wpcf7-new' ), esc_html__( 'Create a Form', 'wpb-popup-for-cf7-lite' ) ) ),
+						'label'   => esc_html__( 'Select a CF7 Form', 'wpb-popup-for-contact-form-7' ),
+						'desc'    => ( ! empty( $forms ) ? esc_html__( 'Select a Contact Form 7 form for popup.', 'wpb-popup-for-contact-form-7' ) : sprintf( '<a href="%s">%s</a>', admin_url( 'admin.php?page=wpcf7-new' ), esc_html__( 'Create a Form', 'wpb-popup-for-contact-form-7' ) ) ),
 						'type'    => 'select',
 						'options' => $forms,
 					),
@@ -129,51 +129,51 @@ if ( ! class_exists( 'WPB_PCF_Plugin_Settings' ) ) :
 				'wpb_pcf_btn_settings'   => array(
 					array(
 						'name'              => 'btn_text',
-						'label'             => esc_html__( 'Button Text', 'wpb-popup-for-cf7-lite' ),
-						'desc'              => esc_html__( 'You can add your own text for the button.', 'wpb-popup-for-cf7-lite' ),
-						'placeholder'       => esc_html__( 'Contact Us', 'wpb-popup-for-cf7-lite' ),
+						'label'             => esc_html__( 'Button Text', 'wpb-popup-for-contact-form-7' ),
+						'desc'              => esc_html__( 'You can add your own text for the button.', 'wpb-popup-for-contact-form-7' ),
+						'placeholder'       => esc_html__( 'Contact Us', 'wpb-popup-for-contact-form-7' ),
 						'type'              => 'text',
-						'default'           => esc_html__( 'Contact Us', 'wpb-popup-for-cf7-lite' ),
+						'default'           => esc_html__( 'Contact Us', 'wpb-popup-for-contact-form-7' ),
 						'sanitize_callback' => 'sanitize_text_field',
 					),
 					array(
 						'name'    => 'btn_size',
-						'label'   => esc_html__( 'Button Size', 'wpb-popup-for-cf7-lite' ),
-						'desc'    => esc_html__( 'Select button size. Default: Medium.', 'wpb-popup-for-cf7-lite' ),
+						'label'   => esc_html__( 'Button Size', 'wpb-popup-for-contact-form-7' ),
+						'desc'    => esc_html__( 'Select button size. Default: Medium.', 'wpb-popup-for-contact-form-7' ),
 						'type'    => 'select',
 						'size'    => 'wpb-select-buttons',
 						'default' => 'large',
 						'options' => array(
-							'small'  => esc_html__( 'Small', 'wpb-popup-for-cf7-lite' ),
-							'medium' => esc_html__( 'Medium', 'wpb-popup-for-cf7-lite' ),
-							'large'  => esc_html__( 'Large', 'wpb-popup-for-cf7-lite' ),
+							'small'  => esc_html__( 'Small', 'wpb-popup-for-contact-form-7' ),
+							'medium' => esc_html__( 'Medium', 'wpb-popup-for-contact-form-7' ),
+							'large'  => esc_html__( 'Large', 'wpb-popup-for-contact-form-7' ),
 						),
 					),
 					array(
 						'name'    => 'btn_color',
-						'label'   => esc_html__( 'Button Color', 'wpb-popup-for-cf7-lite' ),
-						'desc'    => esc_html__( 'Choose button color.', 'wpb-popup-for-cf7-lite' ),
+						'label'   => esc_html__( 'Button Color', 'wpb-popup-for-contact-form-7' ),
+						'desc'    => esc_html__( 'Choose button color.', 'wpb-popup-for-contact-form-7' ),
 						'type'    => 'color',
 						'default' => '#ffffff',
 					),
 					array(
 						'name'    => 'btn_bg_color',
-						'label'   => esc_html__( 'Button Background', 'wpb-popup-for-cf7-lite' ),
-						'desc'    => esc_html__( 'Choose button background color.', 'wpb-popup-for-cf7-lite' ),
+						'label'   => esc_html__( 'Button Background', 'wpb-popup-for-contact-form-7' ),
+						'desc'    => esc_html__( 'Choose button background color.', 'wpb-popup-for-contact-form-7' ),
 						'type'    => 'color',
 						'default' => '#17a2b8',
 					),
 					array(
 						'name'    => 'btn_hover_color',
-						'label'   => esc_html__( 'Button Hover Color', 'wpb-popup-for-cf7-lite' ),
-						'desc'    => esc_html__( 'Choose button hover color.', 'wpb-popup-for-cf7-lite' ),
+						'label'   => esc_html__( 'Button Hover Color', 'wpb-popup-for-contact-form-7' ),
+						'desc'    => esc_html__( 'Choose button hover color.', 'wpb-popup-for-contact-form-7' ),
 						'type'    => 'color',
 						'default' => '#ffffff',
 					),
 					array(
 						'name'    => 'btn_bg_hover_color',
-						'label'   => esc_html__( 'Button Hover Background', 'wpb-popup-for-cf7-lite' ),
-						'desc'    => esc_html__( 'Choose button hover background color.', 'wpb-popup-for-cf7-lite' ),
+						'label'   => esc_html__( 'Button Hover Background', 'wpb-popup-for-contact-form-7' ),
+						'desc'    => esc_html__( 'Choose button hover background color.', 'wpb-popup-for-contact-form-7' ),
 						'type'    => 'color',
 						'default' => '#138496',
 					),
@@ -181,28 +181,28 @@ if ( ! class_exists( 'WPB_PCF_Plugin_Settings' ) ) :
 				'wpb_pcf_popup_settings' => array(
 					array(
 						'name'    => 'form_style',
-						'label'   => esc_html__( 'Enable Form Style', 'wpb-popup-for-cf7-lite' ),
-						'desc'    => esc_html__( 'Check this to enable the form style.', 'wpb-popup-for-cf7-lite' ),
+						'label'   => esc_html__( 'Enable Form Style', 'wpb-popup-for-contact-form-7' ),
+						'desc'    => esc_html__( 'Check this to enable the form style.', 'wpb-popup-for-contact-form-7' ),
 						'type'    => 'checkbox',
 						'default' => 'on',
 					),
 					array(
 						'name'  => 'allow_outside_click',
-						'label' => esc_html__( 'Close Popup on Outside Click', 'wpb-popup-for-cf7-lite' ),
-						'desc'  => esc_html__( 'If checked, the user can dismiss the popup by clicking outside it.', 'wpb-popup-for-cf7-lite' ),
+						'label' => esc_html__( 'Close Popup on Outside Click', 'wpb-popup-for-contact-form-7' ),
+						'desc'  => esc_html__( 'If checked, the user can dismiss the popup by clicking outside it.', 'wpb-popup-for-contact-form-7' ),
 						'type'  => 'checkbox',
 					),
 					array(
 						'name'              => 'popup_width',
-						'label'             => esc_html__( 'Popup Width', 'wpb-popup-for-cf7-lite' ),
-						'desc'              => esc_html__( 'Popup window width, Can be in px or %. The default width is 500px.', 'wpb-popup-for-cf7-lite' ),
+						'label'             => esc_html__( 'Popup Width', 'wpb-popup-for-contact-form-7' ),
+						'desc'              => esc_html__( 'Popup window width, Can be in px or %. The default width is 500px.', 'wpb-popup-for-contact-form-7' ),
 						'type'              => 'numberunit',
 						'default'           => 500,
 						'default_unit'      => 'px',
 						'sanitize_callback' => 'floatval',
 						'options'           => array(
-							'px' => esc_html__( 'Px', 'wpb-popup-for-cf7-lite' ),
-							'%'  => esc_html__( '%', 'wpb-popup-for-cf7-lite' ),
+							'px' => esc_html__( 'Px', 'wpb-popup-for-contact-form-7' ),
+							'%'  => esc_html__( '%', 'wpb-popup-for-contact-form-7' ),
 						),
 					),
 				),
