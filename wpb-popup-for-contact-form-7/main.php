@@ -6,7 +6,7 @@
  * Description:       Shows a nice popup of the Contact Form 7 form.
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Version:           1.7.9
+ * Version:           1.8
  * Author:            WPBean
  * Author URI:        https://wpbean.com/
  * License:           GPL-2.0-or-later
@@ -29,7 +29,7 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @var string
 	 */
-	public $version = '1.7.9';
+	public $version = '1.8';
 
 	/**
 	 * The plugin url.
@@ -84,7 +84,7 @@ final class WPB_PCF_Get_Popup_Button {
 	private function __construct() {
 		$this->define_constants();
 		if ( ! defined( 'WPB_PCF_PREMIUM' ) ) {
-			add_action( 'plugins_loaded', array( $this, 'plugin_init' ) );
+			add_action( 'after_setup_theme', array( $this, 'plugin_init' ) );
 			add_action( 'activated_plugin', array( $this, 'activation_redirect' ) );
 		}
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
@@ -252,7 +252,9 @@ final class WPB_PCF_Get_Popup_Button {
 			include_once __DIR__ . '/includes/admin/class.settings-api.php';
 			include_once __DIR__ . '/includes/admin/class.settings-config.php';
 
-			//include_once __DIR__ . '/includes/DiscountPage/DiscountPage.php';
+			if(!class_exists('WpBean_AccordionMenu_AvailableHire')){
+				include_once __DIR__ . '/includes/AvailableHire/AvailableHire.php';
+			}
 		} else {
 			include_once __DIR__ . '/includes/class.shortcode.php';
 		}
@@ -277,8 +279,7 @@ final class WPB_PCF_Get_Popup_Button {
 
 		if ( is_admin() ) {
 			new WPB_PCF_Plugin_Settings();
-
-			//new WPBean_CF7_Popup_DiscountPage();
+			new WpBean_AccordionMenu_AvailableHire();
 		} else {
 			new WPB_PCF_Shortcode_Handler();
 		}
@@ -304,6 +305,18 @@ final class WPB_PCF_Get_Popup_Button {
 	 */
 	public function enqueue_scripts() {
 		do_action( 'cfturnstile_enqueue_scripts' );
+
+		if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
+			wpcf7_enqueue_scripts();
+		}
+
+		if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
+			wpcf7_enqueue_styles();
+		}
+
+		if ( ! wp_script_is( 'google-recaptcha', 'enequeued' ) ) {
+			wp_enqueue_script( 'google-recaptcha' );
+		}
 
 		wp_enqueue_style( 'wpb-pcf-sweetalert2', plugins_url( 'assets/css/sweetalert2.min.css', __FILE__ ), array(), '11.4.8' );
 		wp_enqueue_style( 'wpb-pcf-styles', plugins_url( 'assets/css/frontend.css', __FILE__ ), array(), '1.0' );

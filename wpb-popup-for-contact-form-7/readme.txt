@@ -4,15 +4,17 @@ Plugin URI: https://wpbean.com/
 Contributors: wpbean, imranwpb
 Tags: cf7, contact form 7 popup, contact form popup, popup form, popup
 Requires at least: 5.0
-Tested up to: 6.7.1
-Stable tag: 1.7.9
+Tested up to: 6.8.1
+Stable tag: 1.8
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Contact Form 7 Popup can boost your sales, leads, and conversions. It only takes a few clicks to add a button-clicked contact form popup. CF7 popup.
+WPB Popup for Contact Form 7 can boost your sales, leads, and conversions. It only takes a few clicks to setup a Contact Form 7 Popup on Button Click.
 
 == Description ==
+
+[__Live Demo__](https://demo1.wpbean.com/popup-for-contact-form-7/) | [__Documentation__](https://docs.wpbean.com/docs/popup-for-contact-form-7/installing/) | [__Upgrade to Pro!__](https://wpbean.com/?p=34195)
 
 <strong>Popup for Contact Form 7</strong> can show a nice popup of the <strong>Contact Form 7</strong> form. A popup form will show up on a button click.
 
@@ -24,11 +26,13 @@ For the form, it's using the most popular <strong>Contact Form 7</strong> plugin
 
 The button text, color, size everything can be changed from the plugin settings. It has options for WooCommerce, the button can be shown on the <a href="https://docs.wpbean.com/docs/popup-for-contact-form-7/showing-the-button/#adding-the-button-function-to-your-site%E2%80%99s-hook">product page</a>.
 
+### 👋 Need expert WordPress & WooCommerce development help?
+I’m currently available for hire — WordPress and WooCommerce development, custom features, bug fixing, speed optimization, performance tuning, SEO improvements, and more.
+With over 10 years of experience building high-quality WordPress solutions, I can help you take your website to the next level. 
+[__Contact me here →__](https://wpbean.com/web-development-services/?utm_source=WordPress&utm_medium=desc-link&utm_campaign=available-for-hire&utm_content=WPB+Popup+CF7)
+
 ### Contact Form 7 in Popup
 You might need to get feedback from users or create leads from site visitors. And you need to add a popup form for this on a certain page. And you want the popup button to be in the middle of the page text. In this case, this is the best option for you. Create contact form 7 popup form quickly and show it smartly.
-
-
->[Buy PRO Version](https://wpbean.com/?p=34195)  |  [DEMO](https://demo1.wpbean.com/popup-for-contact-form-7/)  |  [Support](https://wpbean.freshdesk.com/) |  [Documentation](https://docs.wpbean.com/docs/popup-for-contact-form-7/installing/)
 
 ### Looking for other contact form popup?
 <strong><a href="https://wordpress.org/plugins/wpb-form-popup/" target="_blank">WPB Contact Form Popup</a></strong> is our new plugin. It is compatible with all of the other popular contact form plugins. Examples include WPForms, Mailchimp, Forminator, Ninja Forms, Formidable, Form Maker by 10Web, weForms, Fluent Forms, HappyForms, WS Form, WPEverest User Registration, WP User Frontend, Bookly, Everest Forms, Kali Forms, and Bit Form. More integrations are on the way.
@@ -276,6 +280,9 @@ Yes, the plugin has a premium version that includes advanced features, like more
 
 = Version 1.7.9 =
 * Removed discount page.
+
+= Version 1.8 =
+* Fixed Textdomain issue.
 
 == Upgrade notice ==
 = 1.7.2 =

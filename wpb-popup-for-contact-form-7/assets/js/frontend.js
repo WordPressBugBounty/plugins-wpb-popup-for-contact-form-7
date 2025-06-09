@@ -47,7 +47,7 @@
                 // For CF7 5.4 and after
                 if ( typeof wpcf7.init === 'function' ) {
                     document.querySelectorAll(".wpb-pcf-wpcf7-form > .wpcf7 > form").forEach(function (e) {
-                        return wpcf7.init(e);
+                        wpcf7.init(e);
                     });
                 }
 
