@@ -5,7 +5,7 @@ Contributors: wpbean, imranwpb
 Tags: cf7, contact form 7 popup, contact form popup, popup form, popup
 Requires at least: 5.0
 Tested up to: 6.8.1
-Stable tag: 1.8
+Stable tag: 1.8.1
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -283,6 +283,10 @@ Yes, the plugin has a premium version that includes advanced features, like more
 
 = Version 1.8 =
 * Fixed Textdomain issue.
+
+= Version 1.8.1 =
+* Added support for the Country & Phone Field Contact Form 7 addon by Narinder Singh Bisht 
+
 
 == Upgrade notice ==
 = 1.7.2 =

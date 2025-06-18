@@ -2,6 +2,22 @@
 
     "use strict";
 
+    // Country & Phone Field Contact Form 7 by Narinder Singh Bisht
+    function wpbPcfCountryAndPhoneField(){
+        if  (typeof $.fn.countrySelect === "function" ) {
+            $(".wpcf7-countrytext").countrySelect();
+        }
+        
+        if  (typeof $.fn.intlTelInput === "function" ) {
+            $(".wpcf7-phonetext").intlTelInput({
+               autoPlaceholder: "off",
+               hiddenInput: "full_number",
+               nationalMode: false,
+            });
+        }
+    }
+
+    // Trigger the popup on click
     $(document).on("click", ".wpb-pcf-form-fire", function(e) {
         
         e.preventDefault();
@@ -81,44 +97,7 @@
                 $("[name='_wpcf7_container_post']").val( post_id );
 
                 // Country & Phone Field Contact Form 7 by Narinder Singh Bisht
-                if ( typeof countrySelect !== 'undefined' ) {
-                    $(".wpcf7-countrytext").countrySelect({
-                        //defaultCountry: "jp",
-                        //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-                        //preferredCountries: ['ca', 'gb', 'us']
-                    });
-                }
-                
-                // Country & Phone Field Contact Form 7 by Narinder Singh Bisht
-
-                var WPCF7PhoneText = $($.parseHTML(res)).find(".wpcf7-phonetext").length;
-
-                if ( typeof intlTelInput !== 'undefined' && WPCF7PhoneText ) {
-                    $(".wpcf7-phonetext").intlTelInput({
-                          // allowDropdown: false,
-                          // autoHideDialCode: false,
-                           autoPlaceholder: "off",
-                          // dropdownContainer: "body",
-                          // excludeCountries: ["us"],
-                          // formatOnDisplay: false,
-                          // geoIpLookup: function(callback) {
-                          //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-                          //     var countryCode = (resp && resp.country) ? resp.country : "";
-                          //     callback(countryCode);
-                          //   });
-                          // },
-                           hiddenInput: "full_number",
-                          // initialCountry: "auto",
-                          // localizedCountries: { 'de': 'Deutschland' },
-                           nationalMode: false,
-                          // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-                          // placeholderNumberType: "MOBILE",
-                          // preferredCountries: ['cn', 'jp'],
-                           //separateDialCode: true,
-                          //utilsScript: "nb_intl/js/utils.js"
-                        
-                    });
-                }
+                wpbPcfCountryAndPhoneField();
 
                 // WP Armour – Honeypot Anti Spam By Dnesscarkey.
                 if (typeof wpa_add_honeypot_field == 'function') {
