@@ -6,7 +6,7 @@
  * Description:       Shows a nice popup of the Contact Form 7 form.
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Version:           1.8.1
+ * Version:           2.0
  * Author:            WPBean
  * Author URI:        https://wpbean.com/
  * License:           GPL-2.0-or-later
@@ -29,7 +29,7 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @var string
 	 */
-	public $version = '1.8.1';
+	public $version = '2.0';
 
 	/**
 	 * The plugin url.
@@ -245,7 +245,6 @@ final class WPB_PCF_Get_Popup_Button {
 	 */
 	public function file_includes() {
 		include_once __DIR__ . '/includes/functions.php';
-		include_once __DIR__ . '/includes/button.php';
 		include_once __DIR__ . '/includes/admin/class.menu-meta.php';
 
 		if ( is_admin() ) {

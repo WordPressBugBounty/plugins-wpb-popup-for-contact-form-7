@@ -180,6 +180,18 @@ if ( ! class_exists( 'WPB_PCF_Plugin_Settings' ) ) :
 				),
 				'wpb_pcf_popup_settings' => array(
 					array(
+						'name'    => 'popup_type',
+						'label'   => esc_html__('Load Popup Content', 'wpb-popup-for-contact-form-7'),
+						'desc'    => esc_html__('The pop-up form may load when a button is clicked or when the page loads for immediate opening.', 'wpb-popup-for-contact-form-7'),
+						'type'    => 'select',
+						'size'    => 'wpb-select-buttons',
+						'default' => 'on_button_click',
+						'options' => array(
+							'on_page_load'  => esc_html__('On Page Load', 'wpb-popup-for-contact-form-7'),
+							'on_button_click'  => esc_html__('On Button Click', 'wpb-popup-for-contact-form-7'),
+						),
+					),
+					array(
 						'name'    => 'form_style',
 						'label'   => esc_html__( 'Enable Form Style', 'wpb-popup-for-contact-form-7' ),
 						'desc'    => esc_html__( 'Check this to enable the form style.', 'wpb-popup-for-contact-form-7' ),

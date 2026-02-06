@@ -4,32 +4,25 @@ Plugin URI: https://wpbean.com/
 Contributors: wpbean, imranwpb
 Tags: cf7, contact form 7 popup, contact form popup, popup form, popup
 Requires at least: 5.0
-Tested up to: 6.8.1
-Stable tag: 1.8.1
+Tested up to: 6.9
+Stable tag: 2.0
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-WPB Popup for Contact Form 7 can boost your sales, leads, and conversions. It only takes a few clicks to setup a Contact Form 7 Popup on Button Click.
+Popup for Contact Form 7 can boost your sales, leads, and conversions. It only takes a few clicks to setup a Contact Form 7 Popup on Button Click.
 
 == Description ==
 
 [__Live Demo__](https://demo1.wpbean.com/popup-for-contact-form-7/) | [__Documentation__](https://docs.wpbean.com/docs/popup-for-contact-form-7/installing/) | [__Upgrade to Pro!__](https://wpbean.com/?p=34195)
 
-<strong>Popup for Contact Form 7</strong> can show a nice popup of the <strong>Contact Form 7</strong> form. A popup form will show up on a button click.
+<strong>Contact Form 7 popup</strong> is a powerful and flexible solution for displaying Contact Form 7 forms in an attractive popup window on your WordPress website. It allows you to open a Contact Form 7 popup instantly when a user clicks a button, improving engagement without redirecting visitors to a separate page.
 
-You might be trying to figure out how to make a contact form appear in a popup when a button is clicked. Popup for Contact Form 7 is the ideal plugin for your website in that scenario.
+If you’re looking for an easy way to show a contact form in a popup on button click, Contact Form 7 popup is the ideal plugin for your site. Using a custom shortcode, you can add the popup button anywhere on your website, including posts, pages, widgets, or custom layouts.
 
-It's possible to add the popup button anywhere on your site using its <strong>Custom ShortCode</strong>.
+The plugin is built on top of the popular Contact Form 7 plugin, ensuring compatibility and reliability. You can assign different Contact Form 7 forms to different popup buttons and display them in multiple locations across your site. Each popup button can be fully customized, including button text, color, and size, directly from the plugin settings.
 
-For the form, it's using the most popular <strong>Contact Form 7</strong> plugin. You can set different forms for different popup buttons. And show the different popup buttons at different locations of the site.
-
-The button text, color, size everything can be changed from the plugin settings. It has options for WooCommerce, the button can be shown on the <a href="https://docs.wpbean.com/docs/popup-for-contact-form-7/showing-the-button/#adding-the-button-function-to-your-site%E2%80%99s-hook">product page</a>.
-
-### 👋 Need expert WordPress & WooCommerce development help?
-I’m currently available for hire — WordPress and WooCommerce development, custom features, bug fixing, speed optimization, performance tuning, SEO improvements, and more.
-With over 10 years of experience building high-quality WordPress solutions, I can help you take your website to the next level. 
-[__Contact me here →__](https://wpbean.com/web-development-services/?utm_source=WordPress&utm_medium=desc-link&utm_campaign=available-for-hire&utm_content=WPB+Popup+CF7)
+It also includes WooCommerce-specific options, allowing you to display the Contact Form 7 popup button on WooCommerce product pages. This makes it easy for customers to submit product inquiries, pre-sales questions, or custom requests directly from the product page.
 
 ### Contact Form 7 in Popup
 You might need to get feedback from users or create leads from site visitors. And you need to add a popup form for this on a certain page. And you want the popup button to be in the middle of the page text. In this case, this is the best option for you. Create contact form 7 popup form quickly and show it smartly.
@@ -285,8 +278,10 @@ Yes, the plugin has a premium version that includes advanced features, like more
 * Fixed Textdomain issue.
 
 = Version 1.8.1 =
-* Added support for the Country & Phone Field Contact Form 7 addon by Narinder Singh Bisht 
+* Added support for the Country & Phone Field Contact Form 7 addon by Narinder Singh Bisht
 
+= Version 2.0 =
+* Added new instant popup opening option.
 
 == Upgrade notice ==
 = 1.7.2 =

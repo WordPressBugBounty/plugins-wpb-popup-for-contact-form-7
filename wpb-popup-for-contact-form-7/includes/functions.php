@@ -63,13 +63,6 @@ if ( ! function_exists( 'wpb_pcf_wpcf7_get_contact_form_id_by_hash' ) ) {
 }
 
 
-
-
-/**
- * Adding the Popup Button using action hook.
- */
-add_action( 'wpb_pcf_contact_form_button', 'wpb_pcf_contact_form_button', 10 );
-
 /**
  * Add CF7 Shortcodes.
  */
