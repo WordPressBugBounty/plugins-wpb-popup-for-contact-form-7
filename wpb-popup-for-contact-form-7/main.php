@@ -6,7 +6,7 @@
  * Description:       Shows a nice popup of the Contact Form 7 form.
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Version:           2.0
+ * Version:           2.1
  * Author:            WPBean
  * Author URI:        https://wpbean.com/
  * License:           GPL-2.0-or-later
@@ -29,7 +29,7 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @var string
 	 */
-	public $version = '2.0';
+	public $version = '2.1';
 
 	/**
 	 * The plugin url.
@@ -250,10 +250,6 @@ final class WPB_PCF_Get_Popup_Button {
 		if ( is_admin() ) {
 			include_once __DIR__ . '/includes/admin/class.settings-api.php';
 			include_once __DIR__ . '/includes/admin/class.settings-config.php';
-
-			if(!class_exists('WpBean_AccordionMenu_AvailableHire')){
-				include_once __DIR__ . '/includes/AvailableHire/AvailableHire.php';
-			}
 		} else {
 			include_once __DIR__ . '/includes/class.shortcode.php';
 		}
@@ -278,7 +274,6 @@ final class WPB_PCF_Get_Popup_Button {
 
 		if ( is_admin() ) {
 			new WPB_PCF_Plugin_Settings();
-			new WpBean_AccordionMenu_AvailableHire();
 		} else {
 			new WPB_PCF_Shortcode_Handler();
 		}
