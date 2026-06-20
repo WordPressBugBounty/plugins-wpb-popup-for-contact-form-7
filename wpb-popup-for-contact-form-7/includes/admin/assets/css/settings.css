@@ -1,210 +1,340 @@
+/* ========================================================
+   WPB Popup for Contact Form 7 – Admin Settings
+   ======================================================== */
+
+/* ----------------------------------------------------------
+   Submit Button
+   ---------------------------------------------------------- */
+.wpb-submit-button {
+    padding: 20px 28px 24px;
+    border-top: 1px solid #eef0f6;
+    background: #f8f9fc;
+}
 .wpb-submit-button .button {
-    background: #f2295b;
-    height: 50px;
+    background: linear-gradient(135deg, #f2295b 0%, #c71843 100%);
     border-color: #c71843;
-    padding: 0 20px 1px;
-    font-size: 16px;
-    -webkit-transition: all .3s linear;
-    -moz-transition: all .3s linear;
-    -ms-transition: all .3s linear;
-    -o-transition: all .3s linear;
-    transition: all .3s linear;
-    text-shadow: none;
-    box-shadow: none;
+    color: #fff;
+    height: 40px;
+    padding: 0 24px;
+    font-size: 13px;
     font-weight: 700;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(242, 41, 91, 0.3);
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    text-shadow: none;
+    line-height: 40px;
     -webkit-font-smoothing: antialiased;
-    line-height: normal;
 }
-.wpb-submit-button .button:hover, .wpb-submit-button .button:focus, .wpb-submit-button .button:active {
-    background: #c71843;
-    border-color: #c71843;
+.wpb-submit-button .button:hover,
+.wpb-submit-button .button:focus,
+.wpb-submit-button .button:active {
+    background: linear-gradient(135deg, #c71843 0%, #a01035 100%);
+    border-color: #a01035;
+    box-shadow: 0 6px 15px rgba(242, 41, 91, 0.4);
+    color: #fff;
+    transform: translateY(-1px);
 }
+
+/* ----------------------------------------------------------
+   Segmented Control Buttons
+   ---------------------------------------------------------- */
 .ui-segment {
-    border: 1px solid #0073aa;
-    border-radius: 4px;
+    border: 1.5px solid #dde1ea;
+    border-radius: 6px;
     display: inline-flex;
-    margin-bottom: 6px;
     overflow: hidden;
-}
-.ui-segment .btn:hover {
-    color: #0073aa;
-}
-.ui-segment .btn.active{
-    background-color: #0073aa;
-    color: white;
+    margin: 0;
+    vertical-align: middle;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 .ui-segment .btn {
-    padding-left: 23px;
-    padding-right: 23px;
+    padding: 0 14px;
     height: 36px;
     text-align: center;
     display: inline-flex;
-    margin: 0px;
+    margin: 0;
     cursor: pointer;
     align-items: center;
+    justify-content: center;
     font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    color: #6b7280;
+    background: #fff;
     border: 0;
-    border-right: 1px solid #0073aa;
-    border-radius: 0!important;
+    border-right: 1.5px solid #dde1ea;
+    border-radius: 0 !important;
     -webkit-font-smoothing: antialiased;
+    -webkit-transition:
+        background 0.18s ease,
+        color 0.18s ease;
+    transition:
+        background 0.18s ease,
+        color 0.18s ease;
+    white-space: nowrap;
 }
-.ui-segment .btn:last-child{
+.ui-segment .btn:last-child {
     border-right: none;
 }
-.segment-select{
-    display:none;
+.ui-segment .btn:hover {
+    color: #192a56;
+    background: #f4f6fb;
+}
+.ui-segment .btn.active {
+    background: #192a56;
+    color: #fff;
+    font-weight: 700;
+}
+.segment-select {
+    display: none;
 }
 
-
-.wpb-checkbox {
+/* ----------------------------------------------------------
+   Checkbox Toggle Switch
+   ---------------------------------------------------------- */
+.wpb-checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.wpb-checkbox-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.wpb-checkbox-switch {
     position: relative;
-    text-align: left;
-}
-.wpb-checkbox.wpb-checkbox-inline {
     display: inline-block;
+    width: 46px;
+    height: 26px;
+    flex-shrink: 0;
 }
-.wpb-checkbox label {
-    cursor: pointer;
-    display: inline;
-    line-height: 24px;
-    vertical-align: top;
-    clear: both;
-    padding-left: 1px;
+.wpb-checkbox-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
-.wpb-checkbox label:not(:empty) {
-    padding-left: 0.75em;
-}
-.wpb-checkbox label:before, .wpb-checkbox label:after {
-    content: "";
+.wpb-checkbox-slider {
     position: absolute;
-    left: 0;
-    top: 0;
-}
-.wpb-checkbox label:before {
-    width: 20px;
-    height: 20px;
-    background: #fff;
-    border: 2px solid rgba(0, 0, 0, 0.54);
-    border-radius: 0.125em;
     cursor: pointer;
-    transition: background 0.3s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d1d5db;
+    border-radius: 34px;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
 }
-.wpb-checkbox input[type="checkbox"] {
-    outline: 0;
-    visibility: hidden;
-    width: 24px;
-    margin: 0;
+.wpb-checkbox-switch input:checked + .wpb-checkbox-slider {
+    background-color: #192a56;
+}
+.wpb-checkbox-switch input:checked + .wpb-checkbox-slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+.wpb-checkbox-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
+    border-radius: 50%;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------------------------------------
+   Input / Select / Textarea Fields
+   ---------------------------------------------------------- */
+.wpb-plugin-settings input[type="text"],
+.wpb-plugin-settings input[type="number"],
+.wpb-plugin-settings input[type="password"],
+.wpb-plugin-settings textarea {
     display: block;
-    float: left;
-    font-size: inherit;
-}
-.wpb-checkbox input[type="checkbox"]:checked + label:before {
-    background: #0073aa;
-    border: none;
-    width: 24px;
-    height: 24px;
-}
-.wpb-checkbox input[type="checkbox"]:checked + label:after {
-    transform: translate(6px, 7px) rotate(-45deg);
-    width: 10px;
-    height: 5px;
-    border: 2px solid #fff;
-    border-top-style: none;
-    border-right-style: none;
-}
-.wpb-checkbox input[type="checkbox"]:disabled + label:before {
-    border-color: rgba(0, 0, 0, 0.26);
-}
-.wpb-checkbox input[type="checkbox"]:disabled:checked + label:before {
-    background: rgba(0, 0, 0, 0.26);
-}
-.wpb-plugin-settings input[type=text],
-.wpb-plugin-settings input[type=number],
-.wpb-plugin-settings input[type=password],
-.wpb-plugin-settings textarea,
-.wpb-plugin-settings select {
-    display: block;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem 1.75rem .375rem 0.75rem;
-    font-size: 1rem;
+    padding: 7px 12px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
+    color: #1f2937;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border: 1.5px solid #dde1ea;
+    border-radius: 6px;
+    height: auto;
+    min-height: 39px;
+    -webkit-transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    max-width: 100%;
 }
-.wpb-plugin-settings input[type=text]:focus,
-.wpb-plugin-settings input[type=number]:focus,
-.wpb-plugin-settings input[type=password]:focus,
+.wpb-plugin-settings select {
+    display: inline-block;
+    padding: 8px 36px 8px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #1f2937;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1.5px solid #dde1ea;
+    border-radius: 6px;
+    height: auto;
+    min-height: 38px;
+    min-width: 180px;
+    max-width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath fill='%236b7280' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px 20px;
+    cursor: pointer;
+    -webkit-transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+.wpb-plugin-settings input[type="text"]:focus,
+.wpb-plugin-settings input[type="number"]:focus,
+.wpb-plugin-settings input[type="password"]:focus,
 .wpb-plugin-settings textarea:focus,
 .wpb-plugin-settings select:focus {
-    color: #495057;
+    color: #1f2937;
     background-color: #fff;
-    border-color: #80bdff;
+    border-color: #273c75;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    box-shadow: 0 0 0 3px rgba(39, 60, 117, 0.1);
 }
 .wpb-plugin-settings textarea {
     height: auto;
+    min-height: 100px;
+    resize: vertical;
 }
 .wpb-plugin-settings .wp-picker-container .wp-color-result.button,
 .wpb-plugin-settings .wp-picker-input-wrap .button,
-.wpb-plugin-settings .wp-picker-container input[type=text].wp-color-picker {
+.wpb-plugin-settings .wp-picker-container input[type="text"].wp-color-picker {
     height: 30px;
+    min-height: auto;
 }
 .wpb-plugin-settings .wp-picker-container .wp-color-result-text {
     height: 28px;
     line-height: 28px;
 }
-.wpb-plugin-settings .wp-picker-container input[type=text].wp-color-picker {
+.wpb-plugin-settings .wp-picker-container input[type="text"].wp-color-picker {
     width: 80px;
+    min-height: auto;
+    padding: 4px 8px;
 }
-.form-table td fieldset.wpb-checkbox label {
-    margin: 0!important;
-    line-height: 24px;
-}
+
+/* ----------------------------------------------------------
+   Settings Card: Container
+   ---------------------------------------------------------- */
 #wpbody-content .metabox-holder.wpb-plugin-settings {
     padding: 0;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 24px rgba(25, 42, 86, 0.08);
 }
-.wpb-plugin-settings form > h2,
-.wpb_pcf_pro_features h3 {
-    font-size: 25px;
-    line-height: normal;
-    margin-top: 10px;
-    margin-bottom: 30px;
+
+/* Section title (h2 output by do_settings_sections) */
+.wpb-plugin-settings form > h2 {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 14px 28px;
+    border-bottom: 1px solid #eef0f6;
+    background: #f4f6fb;
 }
+
+/* Field label */
 .wpb-plugin-settings .form-table th label {
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a2550;
+    line-height: 1.4;
+    display: block;
+    margin-top: 2px;
 }
-.wpb-plugin-settings .group,
-.wpb_pcf_pro_features {
+
+/* Group (each tab's form section) */
+.wpb-plugin-settings .group {
     background: #fff;
-    padding: 30px;
+    padding: 0;
 }
+
+/* ----------------------------------------------------------
+   Tab Navigation
+   ---------------------------------------------------------- */
 .wpb-plugin-settings-wrap h2.nav-tab-wrapper {
-    border: 0;
+    border: none;
+    border-bottom: 2px solid #eef0f6;
     clear: both;
+    margin: 0;
+    padding: 0 12px;
+    background: #fff;
+    border-radius: 8px 8px 0 0;
+    box-shadow:
+        0 -2px 0 0 transparent,
+        0 4px 24px rgba(25, 42, 86, 0.08);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 .wpb-plugin-settings-wrap .nav-tab {
-    background: #273c75;
-    border-color: #192a56;
-    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+    color: #6b7280;
+    padding: 14px 14px;
+    font-size: 13px;
+    font-weight: 600;
     position: relative;
-    padding: 10px 15px;
-    font-size: 15px;
-    border-bottom: 0;
-    -webkit-transition: all .3s linear;
-    -moz-transition: all .3s linear;
-    -ms-transition: all .3s linear;
-    -o-transition: all .3s linear;
-    transition: all .3s linear;
+    top: 2px;
+    text-decoration: none;
+    line-height: 1.3;
+    -webkit-transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+    margin: 0;
+    cursor: pointer;
+}
+.wpb-plugin-settings-wrap .nav-tab:hover {
+    color: #273c75;
+    border-bottom-color: rgba(25, 42, 86, 0.2);
+    background: transparent;
 }
 .wpb-plugin-settings-wrap .nav-tab.nav-tab-active {
-    background: #f2295b;
-    border-color: #c71843;
+    color: #192a56;
+    font-weight: 700;
+    border-bottom: 3px solid #f2295b;
+    background: transparent;
 }
 .wpb-plugin-settings-wrap .nav-tab:focus {
     outline: 0;
@@ -213,73 +343,382 @@
 .wpb-plugin-settings-wrap .nav-tab:first-child {
     margin-left: 0;
 }
+
+/* ----------------------------------------------------------
+   Form Table
+   ---------------------------------------------------------- */
+.wpb-plugin-settings-wrap .form-table {
+    margin-top: 0;
+    border-collapse: collapse;
+    width: 100%;
+}
 .wpb-plugin-settings-wrap .form-table th {
-    padding: 40px 10px 40px 0 
+    padding: 20px 16px 20px 28px;
+    width: 220px;
+    vertical-align: top;
 }
 .wpb-plugin-settings-wrap .form-table td {
-    padding: 35px 10px
+    padding: 20px 28px 20px 0;
+    vertical-align: top;
 }
+.wpb-plugin-settings-wrap .form-table tbody tr {
+    border-bottom: 1px solid #f0f2f8;
+}
+.wpb-plugin-settings-wrap .form-table tbody tr:last-child {
+    border-bottom: none;
+}
+.wpb-plugin-settings-wrap td p.description,
+.wpb-plugin-settings-wrap .wpb-checkbox-wrapper p.description {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 7px;
+    margin-bottom: 0;
+    line-height: 1.6;
+    max-width: 480px;
+}
+
+/* ----------------------------------------------------------
+   Number + Unit Field
+   ---------------------------------------------------------- */
 .wpb-numberunit-field {
-    display: flex;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
 }
 .wpb-numberunit-field .regular-text {
-    margin-right: 15px;
-    max-width: 100px;
+    width: 90px;
+    max-width: 90px;
+    min-width: 0;
+    flex-shrink: 0;
+    margin-right: 0;
 }
+
+/* ----------------------------------------------------------
+   Misc
+   ---------------------------------------------------------- */
 #weforms-review-notice.weforms-review-notice {
-    display: none!important;
+    display: none !important;
 }
-.wpb_pcf_pro_features.wrap {
-    margin-top: 40px;
+
+/* =========================================
+   Page Header
+   ========================================= */
+.wpb-pcf-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: linear-gradient(135deg, #192a56 0%, #273c75 100%);
+    padding: 20px 28px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(39, 60, 117, 0.25);
 }
-.wpb_pcf_pro_features li {
-    list-style: disc;
-    margin-left: 14px;
-    margin-bottom: 15px;
-    font-size: 16px;
+.wpb-pcf-header-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
-a.button.button-primary.button-pro {
+.wpb-pcf-header-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.wpb-pcf-header-icon .dashicons {
+    font-size: 26px;
+    width: 26px;
+    height: 26px;
+    color: #fff;
+}
+.wpb-pcf-header-info h1 {
+    color: #fff !important;
+    font-size: 20px !important;
+    font-weight: 700;
+    margin: 0 0 6px !important;
+    padding: 0 !important;
+    line-height: 1.2;
+}
+.wpb-pcf-header-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.wpb-pcf-plan-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.wpb-pcf-version {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 12px;
+}
+.wpb-pcf-header-docs-link {
+    color: #fff !important;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none !important;
+    opacity: 0.8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 1px;
+    -webkit-transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease;
+}
+.wpb-pcf-header-docs-link:hover {
+    opacity: 1;
+    border-bottom-color: #fff;
+}
+.wpb-pcf-header-upgrade-btn {
     display: inline-flex;
     align-items: center;
-    background: #0652DD;
-    border-color: #1B1464;
-    margin-top: 20px;
+    gap: 7px;
+    background: linear-gradient(135deg, #f2295b 0%, #c71843 100%);
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 13px;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(242, 41, 91, 0.45);
+    white-space: nowrap;
 }
-a.button.button-primary.button-pro:hover, a.button.button-primary.button-pro:focus {
-    background: #1B1464;
+.wpb-pcf-header-upgrade-btn:hover {
+    background: linear-gradient(135deg, #c71843 0%, #a01035 100%);
+    box-shadow: 0 6px 18px rgba(242, 41, 91, 0.55);
+    color: #fff !important;
+    transform: translateY(-1px);
 }
-.wpb_pcf_pro_features code {
+.wpb-pcf-header-upgrade-btn .dashicons {
+    font-size: 15px;
+    width: 15px;
+    height: 15px;
+    color: #ffd700;
+}
+
+/* =========================================
+   Two-column Layout
+   ========================================= */
+.wpb-pcf-layout-row {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+.wpb-pcf-col-main {
+    flex: 1;
+    min-width: 0;
+}
+.wpb-pcf-col-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 52px;
+}
+
+/* =========================================
+   Pro Sidebar Card
+   ========================================= */
+.wpb-pcf-pro-sidebar-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.09);
+    border: 1px solid #e8eaf0;
+}
+.wpb-pcf-pro-card-header {
+    background: linear-gradient(135deg, #192a56 0%, #273c75 100%);
+    padding: 24px 20px;
+    text-align: center;
+}
+.wpb-pcf-pro-card-crown {
     display: block;
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
-    background: transparent;
+    font-size: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+    margin: 0 auto 10px !important;
+    color: #ffd700 !important;
+}
+.wpb-pcf-pro-card-header h3 {
+    color: #fff !important;
+    font-size: 17px !important;
+    font-weight: 700;
+    margin: 0 0 5px !important;
+    padding: 0 !important;
+}
+.wpb-pcf-pro-card-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
     margin: 0;
 }
-.wpb_pcf_pro_features pre {
-    display: block;
-    padding: 8.5px;
-    margin: 0 0 9px;
-    word-break: break-all;
-    word-wrap: break-word;
-    white-space: pre;
-    white-space: pre-wrap;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0,0,0,.15);
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+.wpb-pcf-pro-card-body {
+    padding: 20px;
+}
+.wpb-pcf-pro-features-list {
+    margin: 0 0 20px !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+.wpb-pcf-pro-features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.5;
+    list-style: none !important;
+    margin: 0 !important;
+}
+.wpb-pcf-pro-features-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.wpb-pcf-pro-features-list li::before {
+    content: "\f147";
+    font-family: dashicons;
+    color: #00a32a;
+    font-size: 18px;
+    line-height: 1.4;
+    flex-shrink: 0;
+}
+.wpb-pcf-pro-card-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #f2295b 0%, #c71843 100%);
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 14px;
+    box-sizing: border-box;
+    text-align: center;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(242, 41, 91, 0.35);
+    margin-top: 4px;
+    width: 100%;
+}
+.wpb-pcf-pro-card-cta:hover {
+    background: linear-gradient(135deg, #c71843 0%, #a01035 100%);
+    color: #fff !important;
+    box-shadow: 0 6px 18px rgba(242, 41, 91, 0.45);
+    transform: translateY(-1px);
+}
+.wpb-pcf-pro-card-cta .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
 }
 
+/* =========================================
+   Responsive
+   ========================================= */
+@media screen and (max-width: 1100px) {
+    .wpb-pcf-layout-row {
+        flex-direction: column;
+    }
+    .wpb-pcf-col-sidebar {
+        width: 100%;
+        position: static;
+    }
+    .wpb-pcf-pro-features-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 20px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .wpb-plugin-settings-wrap h2.nav-tab-wrapper {
+        padding: 0 6px;
+    }
+    .wpb-plugin-settings-wrap .nav-tab {
+        padding: 12px 10px;
+        font-size: 12px;
+    }
+    .wpb-plugin-settings-wrap .form-table th {
+        padding: 16px 12px 16px 20px;
+        width: 180px;
+    }
+    .wpb-plugin-settings-wrap .form-table td {
+        padding: 16px 20px 16px 0;
+    }
+    .wpb-submit-button,
+    .wpb-plugin-settings form > h2 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+@media screen and (max-width: 782px) {
+    .wpb-pcf-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 15px 18px;
+    }
+    .wpb-pcf-header-info h1 {
+        font-size: 17px !important;
+    }
+    .wpb-pcf-pro-features-list {
+        grid-template-columns: 1fr;
+    }
+    .wpb-plugin-settings-wrap .form-table th,
+    .wpb-plugin-settings-wrap .form-table td {
+        display: block;
+        width: 100%;
+        padding: 12px 18px;
+    }
+    .wpb-plugin-settings-wrap .form-table th {
+        padding-bottom: 4px;
+    }
+    .wpb-plugin-settings-wrap .form-table td {
+        padding-top: 4px;
+    }
+    .wpb-plugin-settings-wrap .form-table tbody tr {
+        display: block;
+        padding: 6px 0;
+    }
+    .wpb-submit-button,
+    .wpb-plugin-settings form > h2 {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .wpb-pcf-header-upgrade-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .wpb-plugin-settings-wrap .nav-tab {
+        padding: 10px 8px;
+        font-size: 11px;
+        gap: 5px;
+    }
+}
 
-/*
-    Discount notice
-*/
+/* ----------------------------------------------------------
+   Discount Notice
+   ---------------------------------------------------------- */
 .wp-admin .wpb-pcf-bf-discount-notice {
     color: #5e5e5e;
-background: #42275a;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #42275a;
+    background: -webkit-linear-gradient(to bottom, #734b6d, #42275a);
+    background: linear-gradient(to bottom, #734b6d, #42275a);
     border-radius: 12px;
     box-shadow: 5px 5px 20px rgba(203, 205, 211, 0.1);
     border: 0;
@@ -288,11 +727,13 @@ background: linear-gradient(to bottom, #734b6d, #42275a); /* W3C, IE 10+/ Edge, 
 .wpb-pcf-bf-discount-notice h3 {
     font-size: 19px;
 }
-.wpb-pcf-bf-discount-notice h3, .wpb-pcf-bf-discount-notice p, .wpb-pcf-bf-discount-notice a {
-    color: #fff;
-}
 .wpb-pcf-bf-discount-notice p {
     font-size: 15px;
+}
+.wpb-pcf-bf-discount-notice h3,
+.wpb-pcf-bf-discount-notice p,
+.wpb-pcf-bf-discount-notice a {
+    color: #fff;
 }
 .wpb-pcf-bf-discount-notice .notice-dismiss {
     text-decoration: none;
@@ -300,4 +741,9 @@ background: linear-gradient(to bottom, #734b6d, #42275a); /* W3C, IE 10+/ Edge, 
 .wpb-pcf-bf-discount-notice .notice-dismiss::before {
     color: #fff;
     box-shadow: 5px 5px 20px rgba(203, 205, 211, 0.1);
+}
+
+div#wpb-pcf-settings > .notice,
+div#wpb-pcf-settings > .updated {
+    margin-top: 0;
 }

@@ -1,11 +1,11 @@
-=== WPB Popup for Contact Form 7 – Showing The Contact Form 7 Popup on Button Click - CF7 Popup ===
+=== WPB Popup for Contact Form 7 – Showing Contact Form 7 Popup on Button Click ===
 Author URI: https://wpbean.com/
 Plugin URI: https://wpbean.com/
 Contributors: wpbean, imranwpb
 Tags: cf7, contact form 7 popup, contact form popup, popup form, popup
 Requires at least: 5.0
-Tested up to: 6.9.1
-Stable tag: 2.1
+Tested up to: 7.0
+Stable tag: 2.2
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -14,9 +14,9 @@ Popup for Contact Form 7 can boost your sales, leads, and conversions. It only t
 
 == Description ==
 
-[__Live Demo__](https://demo1.wpbean.com/popup-for-contact-form-7/) | [__Documentation__](https://docs.wpbean.com/docs/popup-for-contact-form-7/installing/) | [__Upgrade to Pro!__](https://wpbean.com/?p=34195)
-
 <strong>Contact Form 7 popup</strong> is a powerful and flexible solution for displaying Contact Form 7 forms in an attractive popup window on your WordPress website. It allows you to open a Contact Form 7 popup instantly when a user clicks a button, improving engagement without redirecting visitors to a separate page.
+
+[__Live Demo__](https://demo1.wpbean.com/popup-for-contact-form-7/) | [__Documentation__](https://docs.wpbean.com/docs/popup-for-contact-form-7/installing/) | [__Upgrade to Pro!__](https://wpbean.com/?p=34195)
 
 If you’re looking for an easy way to show a contact form in a popup on button click, Contact Form 7 popup is the ideal plugin for your site. Using a custom shortcode, you can add the popup button anywhere on your website, including posts, pages, widgets, or custom layouts.
 
@@ -33,40 +33,40 @@ You might need to get feedback from users or create leads from site visitors. An
 
 ### Popup for Contact Form 7 Key Features
 
-* Showing the Contact Form 7 popup on a button click.
-* Ajax-powered Contact Form 7 modal popup.
-* Advanced Contact Form 7 popup Elementor widget.
-* Show the button using ShortCode, PHP function, and action hook.
-* Show different popup buttons on different pages with different forms.
-* Advanced settings for button and popup style configuration.
-* Very easy to use.
-* RTL and multi-language ready.
-
+* Display **Contact Form 7 popup on button click** with ease.
+* Fast and smooth **AJAX-powered modal popup** for Contact Form 7.
+* Dedicated **Elementor widget for Contact Form 7 popup**.
+* Add popup buttons using **shortcode, PHP function, or action hooks**.
+* Show **different popup buttons with different forms** on specific pages.
+* Advanced **button and popup style customization options**.
+* Beginner-friendly and **easy to set up**.
+* Fully **RTL and translation ready**.
 
 ### Premium Key Features
 
-* Popup buttons for the Contact Form 7 forms.
-* Show the buttons using ShortCodes and action hooks.
-* Show different popup buttons on different locations with different forms.
-* Including a link to the popup in the navigation menu.
-* Initiate the popup form automatically on chosen pages based on a variety of conditions. There is no need to push any buttons.
-* Automatic pop-ups can be set to appear in response to various events, such as page load, tab close, scroll down, or hovering over an element.
-* Specific URLs or page/post type IDs can trigger an automated popup.
-* Advanced settings for button and popup style configuration.
-* Configurable options for the open and close animations of popups.
-* Settings for closing the popup on successfully submitting the form.
-* Elementor widget for easy use with the Elementor page builder.
-* Use the popup as a standalone widget or integrate it into other Elementor widgets.
-* Advanced popup buttons generator, for adding multiple different customized popup buttons.
-* The popup buttons can be shown to any action hooks.
-* Beautiful design for the forms that show in the popup.
-* RTL Support and mobile responsive.
-* Easy to use and customize.
-* Online documentation and video tutorials.
-* Quality support, and free installation if required.
-* Tested with hundreds of popular themes and plugins.
-* Tested with the Gutenberg Editor.
-* Regular updates.
+* Create unlimited **popup buttons for Contact Form 7 forms**.
+* Display buttons via **shortcodes, PHP functions, and action hooks**.
+* Assign **different popup buttons and forms to different locations/pages**.
+* Add **popup trigger links in navigation menus**.
+* Trigger popups **automatically without button click**.
+* Auto popup triggers based on **page load, exit intent, scroll, or hover**.
+* Target specific **URLs, pages, or post types** for auto popups.
+* Advanced **design and styling controls** for popup and buttons.
+* Customizable **open and close popup animations**.
+* Option to **auto-close popup after successful form submission**.
+* Powerful **Elementor widget integration**.
+* Use as a **standalone popup or inside Elementor layouts**.
+* Advanced **popup button generator** for multiple designs.
+* Display popup buttons via **any WordPress action hook**.
+* Clean and modern **popup form design UI**.
+* Fully **responsive, RTL, and mobile-friendly**.
+* Easy to **customize and manage**.
+* Includes **detailed documentation and video tutorials**.
+* Reliable **premium support with free installation (if needed)**.
+* Tested with **popular themes and plugins**.
+* Fully compatible with the **Gutenberg editor**.
+* Regular **updates and improvements**.
+
 
 https://youtu.be/BtV5_yRUsvY
 > Video Credit: **WP Design Lab**.
@@ -285,6 +285,9 @@ Yes, the plugin has a premium version that includes advanced features, like more
 
 = Version 2.1 =
 * Removed the hire notice.
+
+= Version 2.2 =
+* Improved the settings page layout.
 
 == Upgrade notice ==
 = 1.7.2 =

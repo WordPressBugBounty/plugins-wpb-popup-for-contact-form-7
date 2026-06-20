@@ -264,11 +264,17 @@ if ( ! class_exists( 'WPB_PCF_WeDevs_Settings_API' ) ) :
 
 			$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
 
-			$html  = '<fieldset class="wpb-checkbox">';
+			$html  = '<fieldset class="wpb-checkbox-wrapper">';
+			$html .= sprintf( '<label class="wpb-checkbox-switcher" for="wpuf-%1$s[%2$s]">', $args['section'], $args['id'] );
+			$html .= '<span class="wpb-checkbox-switch">';
 			$html .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
 			$html .= sprintf( '<input type="checkbox" class="checkbox" id="wpuf-%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s />', $args['section'], $args['id'], checked( $value, 'on', false ) );
-			$html .= sprintf( '<label for="wpuf-%1$s[%2$s]">', $args['section'], $args['id'] );
-			$html .= sprintf( '%1$s</label>', $args['desc'] );
+			$html .= '<span class="wpb-checkbox-slider"></span>';
+			$html .= '</span>';
+			$html .= '</label>';
+			if ( ! empty( $args['desc'] ) ) {
+				$html .= sprintf( '<p class="description">%s</p>', $args['desc'] );
+			}
 			$html .= '</fieldset>';
 
 			echo $html;

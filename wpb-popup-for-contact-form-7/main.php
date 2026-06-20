@@ -6,7 +6,7 @@
  * Description:       Shows a nice popup of the Contact Form 7 form.
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Version:           2.1
+ * Version:           2.2
  * Author:            WPBean
  * Author URI:        https://wpbean.com/
  * License:           GPL-2.0-or-later
@@ -17,19 +17,20 @@
  * @package WPB Popup for Contact Form 7
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
+if (! defined('ABSPATH')) exit; // Exit if accessed directly 
 
 /**
  * Plugin main class
  */
-final class WPB_PCF_Get_Popup_Button {
+final class WPB_PCF_Get_Popup_Button
+{
 
 	/**
 	 * Plugin version.
 	 *
 	 * @var string
 	 */
-	public $version = '2.1';
+	public $version = '2.2';
 
 	/**
 	 * The plugin url.
@@ -71,8 +72,9 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return Plugin An instance of the class.
 	 */
-	public static function instance() {
-		if ( is_null( self::$instance ) ) {
+	public static function instance()
+	{
+		if (is_null(self::$instance)) {
 			self::$instance = new self();
 		}
 		return self::$instance;
@@ -81,25 +83,27 @@ final class WPB_PCF_Get_Popup_Button {
 	/**
 	 * Class Constructor.
 	 */
-	private function __construct() {
+	private function __construct()
+	{
 		$this->define_constants();
-		if ( ! defined( 'WPB_PCF_PREMIUM' ) ) {
-			add_action( 'after_setup_theme', array( $this, 'plugin_init' ) );
-			add_action( 'activated_plugin', array( $this, 'activation_redirect' ) );
+		if (! defined('WPB_PCF_PREMIUM')) {
+			add_action('after_setup_theme', array($this, 'plugin_init'));
+			add_action('activated_plugin', array($this, 'activation_redirect'));
 		}
-		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
-		register_activation_hook( __FILE__, array( $this, 'activate' ) );
-		register_deactivation_hook( plugin_basename( __FILE__ ), array( $this, 'plugin_deactivation' ) );
+		add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'plugin_action_links'));
+		register_activation_hook(__FILE__, array($this, 'activate'));
+		register_deactivation_hook(plugin_basename(__FILE__), array($this, 'plugin_deactivation'));
 	}
 
 	/**
 	 * Define plugin Constants.
 	 */
-	public function define_constants() {
-		define( 'WPB_PCF_FREE_VERSION', $this->version );
-		define( 'WPB_PCF_FREE_INIT', plugin_basename( __FILE__ ) );
-		define( 'WPB_PCF_CPT_PLUGIN_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
-		define( 'WPB_PCF_CPT_PLUGIN_EL_TEMPLATE_PATH', WPB_PCF_CPT_PLUGIN_PATH . '/elementor/' );
+	public function define_constants()
+	{
+		define('WPB_PCF_FREE_VERSION', $this->version);
+		define('WPB_PCF_FREE_INIT', plugin_basename(__FILE__));
+		define('WPB_PCF_CPT_PLUGIN_PATH', trailingslashit(plugin_dir_path(__FILE__)));
+		define('WPB_PCF_CPT_PLUGIN_EL_TEMPLATE_PATH', WPB_PCF_CPT_PLUGIN_PATH . '/elementor/');
 	}
 
 	/**
@@ -107,15 +111,16 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return void
 	 */
-	public function plugin_init() {
+	public function plugin_init()
+	{
 		$this->file_includes();
 		$this->init_classes();
 
-		add_action( 'init', array( $this, 'localization_setup' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		add_action( 'admin_notices', array( $this, 'dependency_admin_notices' ) );
-		add_action( 'admin_notices', array( $this, 'suggeations_admin_notice' ) );
-		add_action( 'admin_init', array( $this, 'admin_notice_dismissed' ) );
+		add_action('init', array($this, 'localization_setup'));
+		add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
+		add_action('admin_notices', array($this, 'dependency_admin_notices'));
+		add_action('admin_notices', array($this, 'suggeations_admin_notice'));
+		add_action('admin_init', array($this, 'admin_notice_dismissed'));
 	}
 
 	/**
@@ -123,42 +128,43 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return void
 	 */
-	public function suggeations_admin_notice() {
+	public function suggeations_admin_notice()
+	{
 		$user_id              = get_current_user_id();
 		$discount_dismiss_url = wp_nonce_url(
-			add_query_arg( 'wpb-pcf-pro-discount-admin-notice-dismissed', 'true', admin_url() ),
+			add_query_arg('wpb-pcf-pro-discount-admin-notice-dismissed', 'true', admin_url()),
 			'wpbean_pcf_discount_admin_notice_dismissed',
 		);
 
 		$form_popup_suggestion_dismiss_url = wp_nonce_url(
-			add_query_arg( 'wpb-pcf-form-popup-suggestion-admin-notice-dismissed', 'true', admin_url() ),
+			add_query_arg('wpb-pcf-form-popup-suggestion-admin-notice-dismissed', 'true', admin_url()),
 			'wpbean_pcf_form_popup_suggestion_admin_notice_dismissed',
 		);
 
-		if ( ! get_user_meta( $user_id, 'wpb_pcf_pro_discount_dismissed' ) ) {
+		if (! get_user_meta($user_id, 'wpb_pcf_pro_discount_dismissed')) {
 			printf(
 				'<div class="wpb-pcf-discount-notice updated" style="padding: 30px 20px;border-left-color: #27ae60;border-left-width: 5px;margin-top: 20px;"><p style="font-size: 18px;line-height: 32px">%s <a target="_blank" href="%s">%s</a>! %s <b>%s</b></p><a href="%s">%s</a></div>',
-				esc_html__( 'Get a 10% exclusive discount on the premium version of the', 'wpb-popup-for-contact-form-7' ),
+				esc_html__('Get a 10% exclusive discount on the premium version of the', 'wpb-popup-for-contact-form-7'),
 				'https://wpbean.com/downloads/popup-for-contact-form-7-pro/?utm_content=Popup+for+Contact+Form+7+Pro&utm_campaign=adminlink&utm_medium=discount-notie&utm_source=FreeVersion',
-				esc_html__( 'Popup for Contact Form 7', 'wpb-popup-for-contact-form-7' ),
-				esc_html__( 'Use discount code - ', 'wpb-popup-for-contact-form-7' ),
+				esc_html__('Popup for Contact Form 7', 'wpb-popup-for-contact-form-7'),
+				esc_html__('Use discount code - ', 'wpb-popup-for-contact-form-7'),
 				'10PERCENTOFF',
-				esc_url( $discount_dismiss_url ),
-				esc_html__( 'Dismiss', 'wpb-popup-for-contact-form-7' )
+				esc_url($discount_dismiss_url),
+				esc_html__('Dismiss', 'wpb-popup-for-contact-form-7')
 			);
 		}
 
-		if ( ! get_user_meta( $user_id, 'wpb_pcf_form_popup_suggestion' ) ) {
+		if (! get_user_meta($user_id, 'wpb_pcf_form_popup_suggestion')) {
 			printf(
 				'<div class="wpb-pcf-form-popup-suggestion updated" style="padding: 30px 20px;border-left-color: #27ae60;border-left-width: 5px;margin-top: 20px;"><p style="font-size: 18px;line-height: 32px">%s <a target="_blank" href="%s">%s</a> %s <b>%s</b>%s </p><a href="%s">%s</a></div>',
-				esc_html__( 'Try our new ', 'wpb-popup-for-contact-form-7' ),
+				esc_html__('Try our new ', 'wpb-popup-for-contact-form-7'),
 				'https://wordpress.org/plugins/wpb-form-popup/?utm_content=WPB+Form+Popup&utm_campaign=adminlink&utm_medium=suggestion-notie&utm_source=PCFFreeVersion',
-				esc_html__( 'WPB Form Popup', 'wpb-popup-for-contact-form-7' ),
-				esc_html__( 'plugin if you prefer to use a different form plugin than', 'wpb-popup-for-contact-form-7' ),
-				esc_html__( 'Contact Form 7', 'wpb-popup-for-contact-form-7' ),
-				esc_html__( '. All of the form plugins are supported.', 'wpb-popup-for-contact-form-7' ),
-				esc_url( $form_popup_suggestion_dismiss_url ),
-				esc_html__( 'Dismiss', 'wpb-popup-for-contact-form-7' )
+				esc_html__('WPB Form Popup', 'wpb-popup-for-contact-form-7'),
+				esc_html__('plugin if you prefer to use a different form plugin than', 'wpb-popup-for-contact-form-7'),
+				esc_html__('Contact Form 7', 'wpb-popup-for-contact-form-7'),
+				esc_html__('. All of the form plugins are supported.', 'wpb-popup-for-contact-form-7'),
+				esc_url($form_popup_suggestion_dismiss_url),
+				esc_html__('Dismiss', 'wpb-popup-for-contact-form-7')
 			);
 		}
 	}
@@ -168,16 +174,17 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return void
 	 */
-	public function admin_notice_dismissed() {
+	public function admin_notice_dismissed()
+	{
 		$user_id = get_current_user_id();
-		if ( isset( $_GET['wpb-pcf-pro-discount-admin-notice-dismissed'] ) ) { // WPCS: input var ok.
-			check_admin_referer( 'wpbean_pcf_discount_admin_notice_dismissed' );
-			add_user_meta( $user_id, 'wpb_pcf_pro_discount_dismissed', 'true', true );
+		if (isset($_GET['wpb-pcf-pro-discount-admin-notice-dismissed'])) { // WPCS: input var ok.
+			check_admin_referer('wpbean_pcf_discount_admin_notice_dismissed');
+			add_user_meta($user_id, 'wpb_pcf_pro_discount_dismissed', 'true', true);
 		}
 
-		if ( isset( $_GET['wpb-pcf-form-popup-suggestion-admin-notice-dismissed'] ) ) { // WPCS: input var ok.
-			check_admin_referer( 'wpbean_pcf_form_popup_suggestion_admin_notice_dismissed' );
-			add_user_meta( $user_id, 'wpb_pcf_form_popup_suggestion', 'true', true );
+		if (isset($_GET['wpb-pcf-form-popup-suggestion-admin-notice-dismissed'])) { // WPCS: input var ok.
+			check_admin_referer('wpbean_pcf_form_popup_suggestion_admin_notice_dismissed');
+			add_user_meta($user_id, 'wpb_pcf_form_popup_suggestion', 'true', true);
 		}
 	}
 
@@ -186,10 +193,11 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return void
 	 */
-	public function plugin_deactivation() {
+	public function plugin_deactivation()
+	{
 		$user_id = get_current_user_id();
-		if ( get_user_meta( $user_id, 'wpb_pcf_pro_discount_dismissed' ) ) {
-			delete_user_meta( $user_id, 'wpb_pcf_pro_discount_dismissed' );
+		if (get_user_meta($user_id, 'wpb_pcf_pro_discount_dismissed')) {
+			delete_user_meta($user_id, 'wpb_pcf_pro_discount_dismissed');
 		}
 
 		flush_rewrite_rules();
@@ -200,9 +208,10 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return void
 	 */
-	public function activate() {
-		update_option( 'wpb_pcf_installed', time() );
-		update_option( 'wpb_pcf_lite_version', $this->version );
+	public function activate()
+	{
+		update_option('wpb_pcf_installed', time());
+		update_option('wpb_pcf_lite_version', $this->version);
 	}
 
 	/**
@@ -212,9 +221,10 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return void
 	 */
-	public function activation_redirect( $plugin ) {
-		if ( plugin_basename( __FILE__ ) === $plugin && defined( 'WPCF7_PLUGIN' ) ) {
-			wp_safe_redirect( esc_url( admin_url( 'admin.php?page=wpb-popup-for-cf7' ) ) );
+	public function activation_redirect($plugin)
+	{
+		if (plugin_basename(__FILE__) === $plugin && defined('WPCF7_PLUGIN')) {
+			wp_safe_redirect(esc_url(admin_url('admin.php?page=wpb-popup-for-cf7')));
 			exit;
 		}
 	}
@@ -226,14 +236,15 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return array
 	 */
-	public function plugin_action_links( $links ) {
-		if ( ! defined( 'WPB_PCF_PREMIUM' ) ) {
-			if ( defined( 'WPCF7_PLUGIN' ) ) {
-				$links[] = '<a href="' . admin_url( 'admin.php?page=wpb-popup-for-cf7' ) . '">' . esc_html__( 'Settings', 'wpb-popup-for-contact-form-7' ) . '</a>';
+	public function plugin_action_links($links)
+	{
+		if (! defined('WPB_PCF_PREMIUM')) {
+			if (defined('WPCF7_PLUGIN')) {
+				$links[] = '<a href="' . admin_url('admin.php?page=wpb-popup-for-cf7') . '">' . esc_html__('Settings', 'wpb-popup-for-contact-form-7') . '</a>';
 			}
-			$links[] = '<a target="_blank" href="https://docs.wpbean.com/?p=1192">' . esc_html__( 'Documentation', 'wpb-popup-for-contact-form-7' ) . '</a>';
-		
-			$links[] = '<a target="_blank" style="    color: #93003c;text-shadow: 1px 1px 1px #eee;font-weight: 700;" href="https://wpbean.com/downloads/popup-for-contact-form-7-pro/?utm_content=Popup+for+Contact+Form+7+Pro&utm_campaign=adminlink&utm_medium=action-link&utm_source=FreeVersion">' . esc_html__( 'Get Pro', 'wpb-popup-for-contact-form-7' ) . '</a>';
+			$links[] = '<a target="_blank" href="https://docs.wpbean.com/?p=1192">' . esc_html__('Documentation', 'wpb-popup-for-contact-form-7') . '</a>';
+
+			$links[] = '<a target="_blank" style="    color: #93003c;text-shadow: 1px 1px 1px #eee;font-weight: 700;" href="https://wpbean.com/downloads/popup-for-contact-form-7-pro/?utm_content=Popup+for+Contact+Form+7+Pro&utm_campaign=adminlink&utm_medium=action-link&utm_source=FreeVersion">' . esc_html__('Get Pro', 'wpb-popup-for-contact-form-7') . '</a>';
 		}
 		return $links;
 	}
@@ -243,22 +254,24 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return void
 	 */
-	public function file_includes() {
+	public function file_includes()
+	{
 		include_once __DIR__ . '/includes/functions.php';
 		include_once __DIR__ . '/includes/admin/class.menu-meta.php';
 
-		if ( is_admin() ) {
+		if (is_admin()) {
 			include_once __DIR__ . '/includes/admin/class.settings-api.php';
 			include_once __DIR__ . '/includes/admin/class.settings-config.php';
+			include_once __DIR__ . '/includes/admin/class.review-notice.php';
 		} else {
 			include_once __DIR__ . '/includes/class.shortcode.php';
 		}
 
-		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		if (defined('DOING_AJAX') && DOING_AJAX) {
 			include_once __DIR__ . '/includes/class.ajax.php';
 		}
 
-		if ( defined( 'ELEMENTOR_VERSION' ) ) {
+		if (defined('ELEMENTOR_VERSION')) {
 			include_once __DIR__ . '/includes/elementor.php';
 		}
 	}
@@ -268,17 +281,19 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return void
 	 */
-	public function init_classes() {
+	public function init_classes()
+	{
 
 		new WPB_PCF_Menu_Meta();
 
-		if ( is_admin() ) {
+		if (is_admin()) {
 			new WPB_PCF_Plugin_Settings();
+			new WPB_PCF_Review_Notice();
 		} else {
 			new WPB_PCF_Shortcode_Handler();
 		}
 
-		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		if (defined('DOING_AJAX') && DOING_AJAX) {
 			new WPB_PCF_Ajax();
 		}
 	}
@@ -288,8 +303,9 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return void
 	 */
-	public function localization_setup() {
-		load_plugin_textdomain( 'wpb-popup-for-contact-form-7', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	public function localization_setup()
+	{
+		load_plugin_textdomain('wpb-popup-for-contact-form-7', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 	}
 
 	/**
@@ -297,38 +313,39 @@ final class WPB_PCF_Get_Popup_Button {
 	 *
 	 * @return void
 	 */
-	public function enqueue_scripts() {
-		do_action( 'cfturnstile_enqueue_scripts' );
+	public function enqueue_scripts()
+	{
+		do_action('cfturnstile_enqueue_scripts');
 
-		if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
+		if (function_exists('wpcf7_enqueue_scripts')) {
 			wpcf7_enqueue_scripts();
 		}
 
-		if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
+		if (function_exists('wpcf7_enqueue_styles')) {
 			wpcf7_enqueue_styles();
 		}
 
-		if ( ! wp_script_is( 'google-recaptcha', 'enequeued' ) ) {
-			wp_enqueue_script( 'google-recaptcha' );
+		if (! wp_script_is('google-recaptcha', 'enequeued')) {
+			wp_enqueue_script('google-recaptcha');
 		}
 
-		wp_enqueue_style( 'wpb-pcf-sweetalert2', plugins_url( 'assets/css/sweetalert2.min.css', __FILE__ ), array(), '11.4.8' );
-		wp_enqueue_style( 'wpb-pcf-styles', plugins_url( 'assets/css/frontend.css', __FILE__ ), array(), '1.0' );
-		wp_enqueue_script( 'wpb-pcf-sweetalert2', plugins_url( 'assets/js/sweetalert2.all.min.js', __FILE__ ), array( 'jquery' ), '11.4.8', true );
-		wp_enqueue_script( 'wpb-pcf-scripts', plugins_url( 'assets/js/frontend.js', __FILE__ ), array( 'jquery', 'wp-util' ), '1.0', true );
+		wp_enqueue_style('wpb-pcf-sweetalert2', plugins_url('assets/css/sweetalert2.min.css', __FILE__), array(), '11.4.8');
+		wp_enqueue_style('wpb-pcf-styles', plugins_url('assets/css/frontend.css', __FILE__), array(), '1.0');
+		wp_enqueue_script('wpb-pcf-sweetalert2', plugins_url('assets/js/sweetalert2.all.min.js', __FILE__), array('jquery'), '11.4.8', true);
+		wp_enqueue_script('wpb-pcf-scripts', plugins_url('assets/js/frontend.js', __FILE__), array('jquery', 'wp-util'), '1.0', true);
 		wp_localize_script(
 			'wpb-pcf-scripts',
 			'WPB_PCF_Vars',
 			array(
-				'ajaxurl' => admin_url( 'admin-ajax.php' ),
-				'nonce'   => wp_create_nonce( 'wpb-pcf-button-ajax' ),
+				'ajaxurl' => admin_url('admin-ajax.php'),
+				'nonce'   => wp_create_nonce('wpb-pcf-button-ajax'),
 			)
 		);
 
-		$btn_color          = wpb_pcf_get_option( 'btn_color', 'wpb_pcf_btn_settings', '#ffffff' );
-		$bg_color           = wpb_pcf_get_option( 'btn_bg_color', 'wpb_pcf_btn_settings', '#17a2b8' );
-		$btn_hover_color    = wpb_pcf_get_option( 'btn_hover_color', 'wpb_pcf_btn_settings', '#ffffff' );
-		$btn_bg_hover_color = wpb_pcf_get_option( 'btn_bg_hover_color', 'wpb_pcf_btn_settings', '#138496' );
+		$btn_color          = wpb_pcf_get_option('btn_color', 'wpb_pcf_btn_settings', '#ffffff');
+		$bg_color           = wpb_pcf_get_option('btn_bg_color', 'wpb_pcf_btn_settings', '#17a2b8');
+		$btn_hover_color    = wpb_pcf_get_option('btn_hover_color', 'wpb_pcf_btn_settings', '#ffffff');
+		$btn_bg_hover_color = wpb_pcf_get_option('btn_bg_hover_color', 'wpb_pcf_btn_settings', '#138496');
 		$custom_css         = "
 		.wpb-pcf-btn-default,
 		.wpb-pcf-form-style-true input[type=submit],
@@ -349,15 +366,16 @@ final class WPB_PCF_Get_Popup_Button {
 			background: {$btn_bg_hover_color}!important;
 		}";
 
-		wp_add_inline_style( 'wpb-pcf-styles', $custom_css );
+		wp_add_inline_style('wpb-pcf-styles', $custom_css);
 	}
 
 	/**
 	 * Admin notices for dependency.
 	 */
-	public function dependency_admin_notices() {
+	public function dependency_admin_notices()
+	{
 
-		$cf7_form_id = wpb_pcf_get_option( 'cf7_form_id', 'wpb_pcf_form_settings' );
+		$cf7_form_id = wpb_pcf_get_option('cf7_form_id', 'wpb_pcf_form_settings');
 
 		$action      = 'install-plugin';
 		$slug        = 'contact-form-7';
@@ -367,25 +385,25 @@ final class WPB_PCF_Get_Popup_Button {
 					'action' => $action,
 					'plugin' => $slug,
 				),
-				admin_url( 'update.php' )
+				admin_url('update.php')
 			),
 			$action . '_' . $slug
 		);
 
-		if ( ! defined( 'WPCF7_PLUGIN' ) ) {
-			?>
+		if (! defined('WPCF7_PLUGIN')) {
+?>
 			<div class="notice notice-error is-dismissible">
-				<p><b><?php esc_html_e( 'Popup for Contact Form 7', 'wpb-popup-for-contact-form-7' ); ?></b><?php esc_html_e( ' required ', 'wpb-popup-for-contact-form-7' ); ?><b><a href="https://wordpress.org/plugins/contact-form-7" target="_blank"><?php esc_html_e( 'Contact Form 7', 'wpb-popup-for-contact-form-7' ); ?></a></b><?php esc_html_e( ' plugin to work with.', 'wpb-popup-for-contact-form-7' ); ?> <b><a href="<?php echo esc_url( $install_cf7 ); ?>">Click here</a></b> to install the <b><?php esc_html_e( 'Contact Form 7', 'wpb-popup-for-contact-form-7' ); ?></b> Plugin.</p>
+				<p><b><?php esc_html_e('Popup for Contact Form 7', 'wpb-popup-for-contact-form-7'); ?></b><?php esc_html_e(' required ', 'wpb-popup-for-contact-form-7'); ?><b><a href="https://wordpress.org/plugins/contact-form-7" target="_blank"><?php esc_html_e('Contact Form 7', 'wpb-popup-for-contact-form-7'); ?></a></b><?php esc_html_e(' plugin to work with.', 'wpb-popup-for-contact-form-7'); ?> <b><a href="<?php echo esc_url($install_cf7); ?>">Click here</a></b> to install the <b><?php esc_html_e('Contact Form 7', 'wpb-popup-for-contact-form-7'); ?></b> Plugin.</p>
 			</div>
-			<?php
+		<?php
 		}
 
-		if ( ! $cf7_form_id && defined( 'WPCF7_PLUGIN' ) ) {
-			?>
+		if (! $cf7_form_id && defined('WPCF7_PLUGIN')) {
+		?>
 			<div class="notice notice-error is-dismissible">
-				<p><?php esc_html_e( 'The Popup for Contact Form 7 needs a form to show. Please select a form', 'wpb-popup-for-contact-form-7' ); ?> <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpb-popup-for-cf7' ) ); ?>"><?php esc_html_e( 'here', 'wpb-popup-for-contact-form-7' ); ?></a>.</p>
+				<p><?php esc_html_e('The Popup for Contact Form 7 needs a form to show. Please select a form', 'wpb-popup-for-contact-form-7'); ?> <a href="<?php echo esc_url(admin_url('admin.php?page=wpb-popup-for-cf7')); ?>"><?php esc_html_e('here', 'wpb-popup-for-contact-form-7'); ?></a>.</p>
 			</div>
-			<?php
+<?php
 		}
 	}
 }
