@@ -4,8 +4,8 @@ Plugin URI: https://wpbean.com/
 Contributors: wpbean, imranwpb
 Tags: cf7, contact form 7 popup, contact form popup, popup form, popup
 Requires at least: 5.0
-Tested up to: 7.0
-Stable tag: 2.2
+Tested up to: 7.0.2
+Stable tag: 2.3
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -288,6 +288,9 @@ Yes, the plugin has a premium version that includes advanced features, like more
 
 = Version 2.2 =
 * Improved the settings page layout.
+
+= Version 2.3 =
+* Added wpb_pcf_contact_form_button function for backward compatibility.
 
 == Upgrade notice ==
 = 1.7.2 =

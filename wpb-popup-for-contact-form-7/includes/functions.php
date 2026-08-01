@@ -65,6 +65,34 @@ if (! function_exists('wpb_pcf_wpcf7_get_contact_form_id_by_hash')) {
 }
 
 
+if (! function_exists('wpb_pcf_contact_form_button')) {
+
+	/**
+	 * Backward compatible wrapper for displaying the popup button.
+	 *
+	 * Kept so themes/snippets built against pre-2.x versions of this
+	 * plugin (which called this function directly) keep working. The
+	 * actual rendering now lives in WPB_PCF_Shortcode_Handler::contact_form_button().
+	 *
+	 * @param array $args An array of attributes.
+	 * @return void
+	 */
+	function wpb_pcf_contact_form_button($args = array())
+	{
+		if (! class_exists('WPB_PCF_Shortcode_Handler')) {
+			require_once __DIR__ . '/class.shortcode.php';
+		}
+
+		static $shortcode_handler = null;
+
+		if (null === $shortcode_handler) {
+			$shortcode_handler = new WPB_PCF_Shortcode_Handler();
+		}
+
+		$shortcode_handler->contact_form_button($args);
+	}
+}
+
 /**
  * Add CF7 Shortcodes.
  */

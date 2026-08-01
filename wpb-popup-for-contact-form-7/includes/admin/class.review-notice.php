@@ -16,7 +16,7 @@ class WPB_PCF_Review_Notice
 {
 
 	// Set to true during development to always show the notice regardless of timing.
-	const DEV_MODE = true;
+	const DEV_MODE = false;
 
 	const INSTALL_DATE_OPTION = 'wpb_pcf_installed';
 	const META_DISMISSED      = 'wpb_pcf_review_dismissed';
